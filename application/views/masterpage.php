@@ -42,7 +42,7 @@
     <body>
 
     <div class="site-header">
-        <div style="    background: rgba(123, 71, 156, 1); border-bottom: 4px solid #f6cf2e; box-shadow: 0px 4px 0px #fff;">
+        <div class="site-nav">
             <div class="row">
                 <div class="medium-6 large-6 columns">
                     <ul class="master-menu">

@@ -108,15 +108,19 @@ body {
 	top: 20px;
 }
 
+/*
 .master-menu li a {
 	padding: 20px 20px 33px 20px;
-}
+}*/
+
+/*
 
 .master-menu li.active a, .master-menu a:hover {
 	padding: 20px 20px 33px 20px;
 	background: #f4cc32;
 	font-weight: bold;
-}
+}*/
+
 /***********************************************************************************************/
 /* Page Menu and Content */
 
@@ -183,11 +187,49 @@ body {
 /*background: rgba(123, 71, 156, 0.8);*/
 }
 
-
-.site-header .row {
-/*	background: rgba(123, 71, 156, 0.8);	*/
+.site-nav {
+	background: rgba(123, 71, 156, 1); 
+	border-bottom: 4px solid #f6cf2e; 
+	box-shadow: 0px 4px 0px #fff;
 }
 
+.site-nav ul {
+	height: 100%;
+	text-align: center;
+	margin: 0px !important;
+}
+
+.site-nav ul li {
+	height: 100%;
+	list-style: none;
+	padding: 0px !important;
+	display: inline-block;
+	margin: 0px !important;
+}
+
+.site-nav ul li:hover {
+	background-color: #f6cf2e;
+	border-color: #f6cf2e;
+}
+
+.site-nav ul li:hover a {
+	color: rgba(123, 71, 156, 1) !important;
+}
+
+.site-nav ul li a {
+	display: block;
+	font-weight: bold;
+	margin: 0px !important;
+	color: #fff !important;
+	padding: 20px 20px !important;
+}
+/*
+.site-header .row {
+	background: rgba(123, 71, 156, 0.8);
+}*/
+
+
+/*
 .site-header ul {
 	text-align: center;
 }
@@ -200,7 +242,9 @@ body {
 
 .site-header ul li a{
 	color: #fff !important;
-}
+}*/
+
+
 
 .top-bar {
 	overflow: hidden;
@@ -214,6 +258,7 @@ body {
 .top-bar-section ul{
 	background: #c06ef7;
 }
+/*
 
 .top-bar-section li.active:not(.has-form) a:not(.button) {
 	background: #c06ef7;
@@ -231,7 +276,8 @@ body {
 .top-bar-section ul li > a.button:hover {
 	background-color: #c06ef7;
 	border-color: #c06ef7	;
-}
+}*/
+
 
 .top-bar .name h1 a {
 	font-family: Myriad Pro;
