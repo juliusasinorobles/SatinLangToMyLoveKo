@@ -14,7 +14,7 @@
 body {
 	background-color: #af60e7;
 	font-family: Myriad Pro;
-	background: url("../images/test landing page.png") no-repeat fixed;
+	background: url("../images/ui_home_bg.jpg") no-repeat fixed;
 	background-size: 100% 100%;
 	background-position: 0% 0%;
 }
@@ -62,7 +62,7 @@ body {
 	min-height: 600px;
     text-align: left;
     position: relative;
-    background: url('../images/ui-content-bg.png') no-repeat fixed;
+    background: url('../images/ui-content-bg.jpg') no-repeat fixed;
     background-size: 100%;
 	background-color: #fff;
     padding: 40px 20px 0 20px; 
@@ -510,7 +510,7 @@ a.register-btn{
 /* About content */
 /***********************************************************************************************/
 .about-header {
-	background: url("../images/ui_about_bg.png") #af60e7 no-repeat center bottom fixed;
+	background: url("../images/ui_about_bg.jpg") #af60e7 no-repeat center bottom fixed;
 	color: white;  
 	height: 300px;
 	padding-top: 40px;
@@ -528,7 +528,7 @@ a.register-btn{
 /* FAQ content */
 /***********************************************************************************************/
 .faq-header {
-	background: url("../images/ui_faq_bg.png") #af60e7 no-repeat center bottom fixed;
+	background: url("../images/ui_faq_bg.jpg") #af60e7 no-repeat center bottom fixed;
 	color: white;  
 	height: 300px;
 	padding-top: 40px;
@@ -562,7 +562,7 @@ a.register-btn{
 /* Privacy Policy content */
 /***********************************************************************************************/
 .privacypolicy-header {
-	background: url("../images/ui_privacypolicy_bg.png") #af60e7 no-repeat center bottom fixed;
+	background: url("../images/ui_privacypolicy_bg.jpg") #af60e7 no-repeat center bottom fixed;
 	color: white;  
 	height: 300px;
 	padding-top: 40px;
@@ -580,7 +580,7 @@ a.register-btn{
 /* Terms & Conditions content */
 /***********************************************************************************************/
 .termsandconditions-header {
-	background: url("../images/ui_termsandconditions_bg.png") #af60e7 no-repeat center bottom fixed;
+	background: url("../images/ui_termsandconditions_bg.jpg") #af60e7 no-repeat center bottom fixed;
 	color: white;  
 	height: 300px;
 	padding-top: 40px;
@@ -598,7 +598,7 @@ a.register-btn{
 /* Contact Us content */
 /***********************************************************************************************/
 .contactus-header {
-	background: url("../images/ui_contactus_bg.png") #af60e7 no-repeat center bottom fixed;
+	background: url("../images/ui_contactus_bg.jpg") #af60e7 no-repeat center bottom fixed;
 	color: white;  
 	height: 300px;
 	padding-top: 40px;
@@ -648,7 +648,7 @@ a.register-btn{
 /* Register content */
 /***********************************************************************************************/
 .register-header {
-	background: url("../images/ui_register_bg.png") #af60e7 no-repeat center bottom fixed;
+	background: url("../images/ui_register_bg.jpg") #af60e7 no-repeat center bottom fixed;
 	color: white;  
 	height: 300px;
 	padding-top: 40px;
