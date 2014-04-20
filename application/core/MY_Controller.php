@@ -43,7 +43,7 @@ class MY_Controller extends CI_Controller
             "termsandconditions" => array(
                     "class" => "termsandconditions-header",
                     "title" => "Terms &amp; Conditions",
-                    "description" => "Terms of Use"
+                    "description" => "Please carefully read our terms and conditions before using this site."
                 ),
             "contactus" => array(
                     "class" => "contactus-header",

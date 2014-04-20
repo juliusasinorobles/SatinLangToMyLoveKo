@@ -18,7 +18,7 @@ $(document).ready(function(){
 	
 	});
 
-/*	$(document).scroll(function(){
+	$(document).scroll(function(){
 
 		if($('.main-content-menu').length > 0){
 
@@ -54,7 +54,7 @@ $(document).ready(function(){
 
 		}
 
-	});*/
+	});
 	
 	___img_gen_code();
 
