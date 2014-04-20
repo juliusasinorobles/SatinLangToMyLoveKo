@@ -54,6 +54,21 @@ class MY_Controller extends CI_Controller
                     "class" => "register-header",
                     "title" => "Register",
                     "description" => "Join now and have a second chance to stardom!"
+                ),
+            "profile" => array(
+                    "class" => "profile-header",
+                    "title" => "",
+                    "description" => ""
+                ),
+            "video" => array(
+                    "class" => "video-header",
+                    "title" => "Promotional Video",
+                    "description" => "Watch our promotional clip to see what's in stored."
+                ),
+            "signin" => array(
+                    "class" => "signin-header",
+                    "title" => "Sign In",
+                    "description" => "Your second chance to stardom! This is the time to make it happen!"
                 )
         );
 

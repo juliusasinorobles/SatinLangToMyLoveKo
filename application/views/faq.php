@@ -80,49 +80,51 @@
             record executives from all over the world.</p>
 
 
-          <form class="faq-form">
-            <div class="faq-form-header">
-                <p><strong>Still have questions?<br>Send it and will answer it right away.</strong></p>
-            </div>
-            <div class="row">
-              <div class="large-12 columns">
-                <label>Name
-                  <input type="text" placeholder="john doe" />
-                </label>
+          <div class="form-wrapper">
+            <form class="faq-form">
+              <div class="faq-form-header">
+                  <p><strong>Still have questions?<br>Send it and will answer it right away.</strong></p>
               </div>
-            </div>
-            <div class="row">
-              <div class="large-12 columns">
-                <label>Email Address
-                  <input type="text" placeholder="you@email.com" />
-                </label>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Name
+                    <input type="text" placeholder="john doe" />
+                  </label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="large-12 columns">
-                <label>Question
-                  <textarea placeholder="Enter question here" placeholder="what's more to ask?"></textarea>
-                </label>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Email Address
+                    <input type="text" placeholder="you@email.com" />
+                  </label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="large-12 columns">
-                <label>Code
-                  <div class="captcha">
-                    <input  class="captcha-key" type="hidden" />
-                    <img class="captcha-code" src="" />
-                    <img class="captcha-refresh" src="" />
-                    <input  class="captcha-input" type="text" placeholder="are you human?" />
-                  </div>
-                </label>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Question
+                    <textarea placeholder="Enter question here" placeholder="what's more to ask?"></textarea>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="large-12 columns">
-                 <a href="#" class="button [tiny small large] submit-button">Submit</a>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Code
+                    <div class="captcha">
+                      <input  class="captcha-key" type="hidden" />
+                      <img class="captcha-code" src="" />
+                      <img class="captcha-refresh" src="" />
+                      <input  class="captcha-input" type="text" placeholder="are you human?" />
+                    </div>
+                  </label>
+                </div>
               </div>
-            </div>
-          </form>
+              <div class="row">
+                <div class="large-12 columns">
+                   <a href="#" class="button [tiny small large] submit-button">Submit</a>
+                </div>
+              </div>
+            </form>
+          </div>
 
         </div>
       </div>

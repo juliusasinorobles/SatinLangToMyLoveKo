@@ -17,8 +17,8 @@
     </div>
     <div class="medium-6 small-6 columns">      
       <h3>Kindly provide the informations below.</h3>
-      <div class="contact-us_form-wrapper">
-        <form class="contact-us_form">
+      <div class="form-wrapper">
+        <form class="register-form">
           <div class="row">
             <div class="large-6 columns">
               <label>First Name
@@ -53,6 +53,11 @@
               <label>Re-type Password
               <input type="text" placeholder="" />
               </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <p><input type="checkbox" value="agree" name="agree">&nbsp;&nbsp;I agree to the <a href="termsandconditions" target="_">Terms of Use</a> and <a href="privacypolicy" target="_">Privacy Policy</a>.</p>
             </div>
           </div>
           <div class="row">
