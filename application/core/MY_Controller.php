@@ -38,7 +38,7 @@ class MY_Controller extends CI_Controller
             "privacypolicy" => array(
                     "class" => "privacypolicy-header",
                     "title" => "Privacy Policy",
-                    "description" => "Privacy Policy Underdog Idols."
+                    "description" => "How we use and protect any information that you give us when you use this website."
                 ),
             "termsandconditions" => array(
                     "class" => "termsandconditions-header",
