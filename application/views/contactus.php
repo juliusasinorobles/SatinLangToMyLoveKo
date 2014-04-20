@@ -2,18 +2,16 @@
 
 <section class="main-content">
     <div class="row">
-
-      <div class="medium-3 small-12 columns">        
-          <aside>
-          </aside>
-      </div>
-      
-    <div class="medium-8 small-12 columns">
+<div class="medium-5 small-12 columns">
       <div class="row">
         <div class="large-12 list-item">
-
+          <div class="row">            
+            <div class="medium-8 small-8 columns">
+              <div id="ourmap"></div>
+            </div>
+          </div>
           <div class="row">
-            <div class="medium-4 small-4 columns">
+          	<div class="medium-4 small-4 columns">
               
               <p>
                 <strong>Email</strong><br/>
@@ -33,10 +31,11 @@
               </p>
 
             </div>
-            <div class="medium-8 small-8 columns">
-              <div id="ourmap"></div>
-            </div>
-          </div>
+          </div>          
+    	</div>    
+    	</div>
+    </div>
+      <div class="medium-7 small-12 columns">        
           <div class="row">
             <div class="medium-12 small-12 columns">
               <br/>
@@ -89,8 +88,7 @@
 
         </div>
       </div>
-    </div>
-    
+      </div>   
     </div>
   </section>
 
