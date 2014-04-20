@@ -11,8 +11,14 @@
             </div>
           </div>
           <div class="row">
-          	<div class="medium-4 small-4 columns">
-              
+          	<div class="medium-8 small-4 columns">  
+
+              <p>
+                <strong>Address</strong><br/>
+                Gaithersburg<br/>
+                Gaithersburg, Maryland 20878<br/>
+                USA<br/>
+              </p>            
               <p>
                 <strong>Email</strong><br/>
                 admin@underdogidols.com
@@ -21,13 +27,6 @@
               <p>
                 <strong>Phone</strong><br/>
                 877 963 7283
-              </p>
-
-              <p>
-                <strong>Address</strong><br/>
-                Gaithersburg<br/>
-                Gaithersburg, Maryland 20878<br/>
-                USA<br/>
               </p>
 
             </div>
