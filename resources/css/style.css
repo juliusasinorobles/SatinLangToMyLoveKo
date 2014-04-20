@@ -23,29 +23,20 @@ body {
 /***********************************************************************************************/
 .page-title {
 	font-family: Myriad Pro;
-  	font-weight: bold;
-    font-size: 3em;
-	-webkit-text-shadow: 1px 0px 20px #b062e3;
-    -moz-text-shadow: 1px 0px 20px #b062e3;
-    -ms-text-shadow: 1px 0px 20px #b062e3;
-    -o-text-shadow: 1px 0px 20px #b062e3;
-	text-shadow: 1px 0px 20px #b062e3;
-	/*-webkit-text-stroke: 2px #7b479c;
-	-moz-text-stroke: 2px #7b479c;
-	-ms-text-stroke: 2px #7b479c;
-	-o-text-stroke: 2px #7b479c;
-	text-stroke: 2px #7b479c;
-	-webkit-stroke-width: 5px;
-	-moz-stroke-width: 5px;
-	-ms-stroke-width: 5px;
-	-o-stroke-width: 5px;
-	stroke-width: 5px;*/
-	color: #fff;
+  	font-size: 3em;
+    text-shadow: -3px 2px 1px #2d0e40, -3px 2px 1px #2d0e40, -3px 2px 1px #2d0e40;
+	margin-top: 20px;
+	font-size: 56px;
+	color: #f6cf2e;
 }
 
 .page-sub-title {
 	color: #fff;
 	font-size: 1.5rem;
+	background: rgba(123, 71, 156, 0.8);
+	display: inline-block;
+	padding: 10px;
+	box-shadow: -3px 2px 1px #2d0e40;
 }
 
 .main-row {
@@ -205,13 +196,17 @@ body {
 	padding: 0px !important;
 	display: inline-block;
 	margin: 0px !important;
+	border: none !important;
 }
 
+.site-nav ul li.active,
 .site-nav ul li:hover {
 	background-color: #f6cf2e;
 	border-color: #f6cf2e;
 }
 
+
+.site-nav ul li.active a,
 .site-nav ul li:hover a {
 	color: rgba(123, 71, 156, 1) !important;
 }
@@ -510,10 +505,9 @@ a.register-btn{
 /* About content */
 /***********************************************************************************************/
 .about-header {
-	background: url("../images/ui_about_bg.jpg") #af60e7 no-repeat center bottom fixed;
+/*	background: url("../images/ui_about_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
 	height: 300px;
-	padding-top: 40px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -528,10 +522,9 @@ a.register-btn{
 /* FAQ content */
 /***********************************************************************************************/
 .faq-header {
-	background: url("../images/ui_faq_bg.jpg") #af60e7 no-repeat center bottom fixed;
+/*	background: url("../images/ui_faq_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
 	height: 300px;
-	padding-top: 40px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -562,10 +555,9 @@ a.register-btn{
 /* Privacy Policy content */
 /***********************************************************************************************/
 .privacypolicy-header {
-	background: url("../images/ui_privacypolicy_bg.jpg") #af60e7 no-repeat center bottom fixed;
+/*	background: url("../images/ui_privacypolicy_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
 	height: 300px;
-	padding-top: 40px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -580,10 +572,9 @@ a.register-btn{
 /* Terms & Conditions content */
 /***********************************************************************************************/
 .termsandconditions-header {
-	background: url("../images/ui_termsandconditions_bg.jpg") #af60e7 no-repeat center bottom fixed;
+/*	background: url("../images/ui_termsandconditions_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
 	height: 300px;
-	padding-top: 40px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -598,10 +589,9 @@ a.register-btn{
 /* Contact Us content */
 /***********************************************************************************************/
 .contactus-header {
-	background: url("../images/ui_contactus_bg.jpg") #af60e7 no-repeat center bottom fixed;
+/*	background: url("../images/ui_contactus_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
 	height: 300px;
-	padding-top: 40px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -648,10 +638,9 @@ a.register-btn{
 /* Register content */
 /***********************************************************************************************/
 .register-header {
-	background: url("../images/ui_register_bg.jpg") #af60e7 no-repeat center bottom fixed;
+/*	background: url("../images/ui_register_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
 	height: 300px;
-	padding-top: 40px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

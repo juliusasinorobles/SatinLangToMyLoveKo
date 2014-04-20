@@ -53,7 +53,7 @@
                 </div>
                 <div class="medium-6 large-6 columns">
                     <ul class="master-menu">
-                        <li><a href="about">Video</a></li>
+                        <li><a href="faq">FAQ</a></li>
                         <li><a href="about">About</a></li>
                         <li><a href="contactus">Contact Us</a></li>
                     </ul>
