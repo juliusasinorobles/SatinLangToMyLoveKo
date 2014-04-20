@@ -56,7 +56,7 @@ body {
     background: url('../images/ui-content-bg.jpg') no-repeat fixed;
     background-size: 100%;
 	background-color: #fff;
-    padding: 40px 20px 0 20px; 
+    padding: 60px 20px 40px 20px; 
 }
 
 .main-content-menu {
@@ -507,7 +507,7 @@ a.register-btn{
 .about-header {
 /*	background: url("../images/ui_about_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
-	height: 300px;
+	height: 250px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -524,7 +524,7 @@ a.register-btn{
 .faq-header {
 /*	background: url("../images/ui_faq_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
-	height: 300px;
+	height: 250px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -534,7 +534,7 @@ a.register-btn{
 }
 
 .faq-form {
-	padding: 10px;
+	padding: 20px;
 	border-radius: 5px;
 	border:2px solid rgba(179, 23, 219, 0.7);
 	background: rgba(0, 0, 0, 0.1);
@@ -557,7 +557,7 @@ a.register-btn{
 .privacypolicy-header {
 /*	background: url("../images/ui_privacypolicy_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
-	height: 300px;
+	height: 250px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -574,7 +574,7 @@ a.register-btn{
 .termsandconditions-header {
 /*	background: url("../images/ui_termsandconditions_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
-	height: 300px;
+	height: 250px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -591,7 +591,7 @@ a.register-btn{
 .contactus-header {
 /*	background: url("../images/ui_contactus_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
-	height: 300px;
+	height: 250px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -625,6 +625,7 @@ a.register-btn{
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 	margin-bottom: 40px;
+	border: 2px solid rgba(179, 23, 219, 0.7);
 }
 
 .contact-us_form textarea {
@@ -640,13 +641,13 @@ a.register-btn{
 .register-header {
 /*	background: url("../images/ui_register_bg.jpg") #af60e7 no-repeat center bottom fixed;*/
 	color: white;  
-	height: 300px;
+	height: 250px;
 	background-size: 100% 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover; 
+	background-size: cover;
 }
 /***********************************************************************************************/
 /* Register content */

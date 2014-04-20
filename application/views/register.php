@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="medium-6 small-6 columns">      
-      <p>Kindly provide the informations below.</p>
+      <h3>Kindly provide the informations below.</h3>
       <div class="contact-us_form-wrapper">
         <form class="contact-us_form">
           <div class="row">
