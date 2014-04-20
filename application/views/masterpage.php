@@ -20,7 +20,7 @@
         </script>
         
         <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-        <link rel="shortcut icon" href="resources/images/underdog-idol-small.png" />
+        <link rel="shortcut icon" href="resources/images/logo.png" />
         
         <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="resources/css/foundation.css" />
