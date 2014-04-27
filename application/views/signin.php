@@ -11,6 +11,7 @@
       <div class="regisration-promotion">
           <img class="register-now" src="resources/images/register-now.png">
           <div class="benefits">
+            <span class="benefits-header">Benefits to upload on pre-launch phase:</span>
             <ul>
               <li><p><i class="fa-2x fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Saving 50% off from official launch uploading cost (5$ instead of 10$);</p></li>
               <li><p><i class="fa-2x fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Having priority to votes from viewers;</p></li>
