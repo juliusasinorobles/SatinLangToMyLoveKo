@@ -11,6 +11,7 @@
         <div class="regisration-promotion">
           <img class="register-now" src="resources/images/register-now.png">
           <div class="benefits">
+            <span class="benefits-header">Benefits to upload on pre-launch phase:</span>
             <ul>
               <li><p><i class="fa-2x fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Saving 50% off from official launch uploading cost (5$ instead of 10$);</p></li>
               <li><p><i class="fa-2x fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Having priority to votes from viewers;</p></li>
@@ -32,10 +33,10 @@
         <div class="row"><h3 class="lower-phrase">This is the time to make it happen!</h3></div>
         <div class="row">
         	<div class="small-10 columns">
-          	<input type="text" placeholder="www.youtube.com/watch?v=moSFlvxnbgk" class="video-field">
+          	<input type="text" placeholder="Youtube Embedded Link" class="video-field">
 	        </div>
 	        <div class="small-2 columns">
-	          <a href="#" class="button button-field">Upload</a>
+	          <a href="#" class="button button-field">Submit</a>
 	        </div>
         </div>
       </div>

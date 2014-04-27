@@ -193,7 +193,7 @@ body {
 }
 
 .captcha .captcha-input {
-	width: 66%;
+	width: 65%;
 	margin-left: 5px;
 	display: inline-block;
 }
@@ -377,6 +377,21 @@ body {
 	-webkit-transform: rotate(-5deg);
 	position: relative;
 	margin-top:10px;
+}
+
+.benefits-header {
+	color: #fff;
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 20px;
+	line-height: 120%;
+}
+
+.benefits a {
+	background: rgba(255, 255, 255, 0.9);
+	padding: 2px;
 }
 
 .benefits li {
@@ -635,11 +650,13 @@ a.register-btn{
     height: 50px;
     display: block;
     background: url("../images/imagelinks.png") no-repeat center 0; 
+  	opacity: 0.50;
+	filter: alpha(opacity=50); 
 }
 
 .site-footer-follow-us li a:hover {
-  	opacity: 0.75;
-	filter: alpha(opacity=80); 
+  	opacity: 1;
+	filter: alpha(opacity=100); 
 }
 
 .site-footer-follow-us li a.twitter {
@@ -652,6 +669,14 @@ a.register-btn{
 
 .site-footer-follow-us li a.mail {
 	background-position: center -400px; 
+}
+
+.site-footer-follow-us li.linkedin {
+	margin-left: 0px !important;
+}
+
+.site-footer-follow-us li a.linkedin {
+	background-position: center -600px; 
 }
 
 .copyright {

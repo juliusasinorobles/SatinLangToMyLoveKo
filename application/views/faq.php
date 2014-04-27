@@ -112,7 +112,7 @@
                     <div class="captcha">
                       <input  class="captcha-key" type="hidden" />
                       <img class="captcha-code" src="" />
-                      <img class="captcha-refresh" src="" />
+                      <i class="fa fa fa-refresh fa-2x captcha-refresh"></i>
                       <input  class="captcha-input" type="text" placeholder="are you human?" />
                     </div>
                   </label>

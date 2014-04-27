@@ -27,7 +27,7 @@ class MY_Controller extends CI_Controller
         $this->pages = array(
             "about" => array(
                     "class" => "about-header",
-                    "title" => "About",
+                    "title" => "About Underdog Idols",
                     "description" => "Where it’s never too late to get your second chance at stardom!"
                 ),
             "faq" => array(
@@ -52,7 +52,7 @@ class MY_Controller extends CI_Controller
                 ),
             "register" => array(
                     "class" => "register-header",
-                    "title" => "Register",
+                    "title" => "Register For Pre-Launch",
                     "description" => "Join now and have a second chance to stardom!"
                 ),
             "profile" => array(
