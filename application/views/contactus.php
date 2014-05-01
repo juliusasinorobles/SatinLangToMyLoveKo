@@ -39,7 +39,7 @@
             <div class="medium-12 small-12 columns">
               <br/>
               <p>Fill up the form below and send us your thoughts about the website. Your feedaback is highly anticipated and will help us to improve our service provided by the website.</p>
-              <div class="contact-us_form-wrapper">
+              <div class="form-wrapper">
                 <form class="contact-us_form">
                   <div class="row">
                     <div class="large-12 columns">

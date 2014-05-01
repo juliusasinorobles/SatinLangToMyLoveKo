@@ -27,7 +27,7 @@ class MY_Controller extends CI_Controller
         $this->pages = array(
             "about" => array(
                     "class" => "about-header",
-                    "title" => "About",
+                    "title" => "About Underdog Idols",
                     "description" => "Where it’s never too late to get your second chance at stardom!"
                 ),
             "faq" => array(
@@ -52,8 +52,23 @@ class MY_Controller extends CI_Controller
                 ),
             "register" => array(
                     "class" => "register-header",
-                    "title" => "Register",
+                    "title" => "Register For Pre-Launch",
                     "description" => "Join now and have a second chance to stardom!"
+                ),
+            "profile" => array(
+                    "class" => "profile-header",
+                    "title" => "",
+                    "description" => ""
+                ),
+            "video" => array(
+                    "class" => "video-header",
+                    "title" => "Promotional Video",
+                    "description" => "Watch our promotional clip to see what's in stored."
+                ),
+            "signin" => array(
+                    "class" => "signin-header",
+                    "title" => "Sign In",
+                    "description" => "Your second chance to stardom! This is the time to make it happen!"
                 )
         );
 

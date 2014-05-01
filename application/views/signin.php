@@ -1,14 +1,14 @@
-<section id="homepage_container">
-  <!--<div class="row">
-    <div class="medium-12 large-12 columns">
-      <div class="tagline">
-        <h1 class="mainline">YOUR SECOND CHANCE TO STARDOM!</h1>
-      </div>   
-    </div>
-  </div> -->
-  <div class="row main-row">
+{content_header}
+
+<section class="main-content">
+  <div class="row">
     <div class="medium-6 large-6 columns">
-        <div class="regisration-promotion">
+      <h2 class="yellow-ribbon">Don't have an account yet?</h2>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="regisration-promotion">
           <img class="register-now" src="resources/images/register-now.png">
           <div class="benefits">
             <span class="benefits-header">Benefits to upload on pre-launch phase:</span>
@@ -23,23 +23,28 @@
         </div>
     </div>
     <div class="medium-6 large-6 columns">
-      <div class="sub-taglines">
-      	<div class="row">
-      		<div class="tagline">
-		        <h1 class="mainline">YOUR SECOND CHANCE TO STARDOM!</h1>
-		      </div>  
-      	</div>
-        <div class="row"><h3 class="upper-phrase">Let the real record label judge you.</h3></div>
-        <div class="row"><h3 class="lower-phrase">This is the time to make it happen!</h3></div>
-        <div class="row">
-        	<div class="small-10 columns">
-          	<input type="text" placeholder="Youtube Embedded Link" class="video-field">
-	        </div>
-	        <div class="small-2 columns">
-	          <a href="#" class="button button-field">Submit</a>
-	        </div>
-        </div>
+      <div class="sign-in-box">     
+        <h3>Log in</h3>
+        <form class="form-wrapper sign-in-form">
+          <div class="row">
+            <div class="medium-12 large-12 columns">
+              <h5>Username</h5>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 large-12 columns">
+              <h5>Password</h5>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 large-12 columns">
+              <input type="button" class="button" value="Submit">
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
+    </div>  
   </div>
 </section>
