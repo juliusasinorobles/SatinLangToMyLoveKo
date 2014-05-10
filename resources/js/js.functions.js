@@ -1,5 +1,24 @@
 var netCall = null;
 
+(function($) {
+$.fn.serializeFormJSON = function() {
+
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+})(jQuery);
+
 $(document).ready(function(){
   
 	$(document).on('click', '.main-content-menu li a', function(){
@@ -55,6 +74,17 @@ $(document).ready(function(){
 		}
 
 	});
+
+	$(document).on('click', '.faq-form input[type=submit]', function(){
+
+		var action = $(this).closest('.faq-form').attr("action");
+		var inputs = $(this).closest('.faq-form').serializeFormJSON();
+			inputs.submit = 'faq';
+		
+		___form_d_submit(action, inputs);
+
+		return false;
+	});
 	
 	___img_gen_code();
 
@@ -70,7 +100,6 @@ function ___img_gen_code() {
 			        type: "post",
 			        url: 'contactus/get_code',
 			        success: function(response) {
-			            $('.captcha .captcha-key').attr('value', response);
 				    	$('.captcha .captcha-code').attr('src', 'contactus/set_code/?id=' + response);
 			        }			        
 			    }).done(function(response){
@@ -79,4 +108,55 @@ function ___img_gen_code() {
 		        });
 
 	}
+}
+
+function ___form_d_submit(des, d)
+{    
+    if ( netCall == null ) {
+    	
+    	netCall = $.ajax({
+			        url: des,
+			        type: "post",
+			        data: d,
+			        dataType: 'json',
+			        async: true,
+			        cache: false,
+			        success: function(res) {
+						___form_show_res(res.message);
+					},
+					error: function(res){
+						console.log("Error: " + res);
+					}
+			    }).done(function(res){
+			    	console.log("Done: " + res);
+		        	netCall = null;
+		        });
+
+    }
+    else
+    {
+    	console.log("working...");
+    }
+}
+
+function ___form_show_res(msg){
+	console.log(msg)
+	var msg_temp = "";
+
+	if (msg instanceof Array) 
+	{
+		$(msg).each(function(i){
+			msg_temp += '<p>' +  msg[i] + '<p>';
+		});
+	}
+	else
+	{
+		msg_temp = '<p>' + msg + '</p>'
+	}
+
+	$(".form-results").html(msg_temp);
+	$(".form-results").slideDown();
+	setTimeout(function(){
+		$(".form-results").slideUp();	
+	}, 2000)
 }

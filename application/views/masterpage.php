@@ -69,7 +69,7 @@
 					margin-left: auto;
 					margin-right: auto;
 					margin-top: -60px;">
-                    <a href="{base_url}"><img src="resources/images/logo.png" style="height: 180px; margin-top: 5px;"/></a>
+                    <a href="{base_url}"><img src="resources/images/logo.png" style="height: 160px; margin-top: 5px;"/></a>
                 </h1>
             </div>
         </div>

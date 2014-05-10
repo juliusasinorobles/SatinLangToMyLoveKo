@@ -4,6 +4,7 @@ class MY_Controller extends CI_Controller
 {
     public $data = array();
     public $pages = array();
+    public $output_results = array();
 
     public function __construct()
     {
@@ -21,7 +22,9 @@ class MY_Controller extends CI_Controller
             'parser',
             'pagination',
             'session',
-            'image_generator'
+            'image_generator',
+            'validation',
+            'session'
         ));
 
         $this->pages = array(
@@ -90,7 +93,19 @@ class MY_Controller extends CI_Controller
 
     public function generate_code()
     {
-        echo encrypt($this->image_generator->populate());
+        $encrypted_code = encrypt($this->image_generator->populate());
+        $this->session->set_userdata('captcha', $encrypted_code);
+        echo $encrypted_code;
+    }
+
+    public function mail($to, $subject, $message)
+    {
+        //send mail...
+    }
+
+    public function show_output_results()
+    {
+        echo json_encode($this->output_results, TRUE);
     }
 
     public function __destruct()

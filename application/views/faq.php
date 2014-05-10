@@ -81,28 +81,28 @@
 
 
           <div class="form-wrapper">
-            <form class="faq-form">
+            <form class="faq-form" method="post" action="faq/">
               <div class="faq-form-header">
                   <p><strong>Still have questions?<br>Send it and will answer it right away.</strong></p>
               </div>
               <div class="row">
                 <div class="large-12 columns">
                   <label>Name
-                    <input type="text" placeholder="john doe" />
+                    <input type="text" name="name" placeholder="john doe" />
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="large-12 columns">
                   <label>Email Address
-                    <input type="text" placeholder="you@email.com" />
+                    <input type="text" name="email" placeholder="you@email.com" />
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="large-12 columns">
                   <label>Question
-                    <textarea placeholder="Enter question here" placeholder="what's more to ask?"></textarea>
+                    <textarea name="question" placeholder="your question here"></textarea>
                   </label>
                 </div>
               </div>
@@ -110,19 +110,24 @@
                 <div class="large-12 columns">
                   <label>Code
                     <div class="captcha">
-                      <input  class="captcha-key" type="hidden" />
                       <img class="captcha-code" src="" />
                       <i class="fa fa fa-refresh fa-2x captcha-refresh"></i>
-                      <input  class="captcha-input" type="text" placeholder="are you human?" />
+                      <input name="code" class="captcha-input" type="text" placeholder="are you human?" />
                     </div>
                   </label>
                 </div>
               </div>
               <div class="row">
-                <div class="large-12 columns">
-                   <a href="#" class="button [tiny small large] submit-button">Submit</a>
+                <div class="large-6 columns">
+                   <input type="submit" name="submit" value="Submit" class="button [tiny small large] submit-button" />
                 </div>
-              </div>
+                <div class="large-6 columns">
+                  <div class="form-results panel callout radius">
+                    <h5>This is a callout panel.</h5>
+                    <p>It's a little ostentatious, but useful for important content.</p>
+                  </div>
+                </div>
+              </div>    
             </form>
           </div>
 
