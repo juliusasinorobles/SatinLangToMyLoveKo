@@ -93,6 +93,7 @@ $(document).ready(function(){
 	$("#upload_photo").ajaxForm();
 	
 	$(document).on('change', '#input-file', function(){
+		console.log("test");
 		$options = {
 			success : function(response){
 				console.log(response);
@@ -137,7 +138,7 @@ function ___form_d_submit(des, d, trigger)
 			        async: true,
 			        cache: false,
 			        success: function(res) {
-						___form_show_res(res.message);
+						___form_show_res(res);
 						
 						if(res.success == true){
 							trigger.closest('form')[0].reset();
@@ -166,25 +167,28 @@ function ___form_d_submit(des, d, trigger)
     }
 }
 
-function ___form_show_res(msg){
-	console.log(msg)
-	var msg_temp = "";
+function ___form_show_res(result){
+	
+	if(result.redirect === 'undefined'){
+		var msg_temp = "";
 
-	if (msg instanceof Array) 
-	{
-		$(msg).each(function(i){
-			msg_temp += '<p>' +  msg[i] + '<p>';
-		});
-	}
-	else
-	{
-		msg_temp = '<p>' + msg + '</p>'
+		if (result.msg instanceof Array) 
+		{
+			$(msg).each(function(i){
+				msg_temp += '<p>' +  result.msg[i] + '<p>';
+			});
+		}
+		else
+		{
+			msg_temp = '<p>' + result.msg + '</p>'
+		}
+
+		$(".form-results").html(msg_temp);
+		$(".form-results").slideDown();
+		setTimeout(function(){
+			$(".form-results").slideUp();	
+		}, 2500)		
 	}
 
-	$(".form-results").html(msg_temp);
-	$(".form-results").slideDown();
-	setTimeout(function(){
-		$(".form-results").slideUp();	
-	}, 2500)
 }
 

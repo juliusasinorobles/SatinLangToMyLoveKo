@@ -71,7 +71,7 @@
           <div class="row">
             <div class="large-4 columns">
                <input type="submit" name="submit" value="Submit" class="button [tiny small large] submit-button" />
-               <a class="button [tiny small large] submit-button" href="profile/">Cancel</a>
+               <a class="button [tiny small large] submit-button" href="profile/">Back</a>
             </div>
             <div class="large-8 columns">
               <div class="form-results panel callout radius">

@@ -245,7 +245,7 @@ body {
 .signin-header, 
 .profile-header {
 	color: white;  
-	height: 300px;
+	min-height: 300px;
 }
 /***********************************************************************************************/
 /*Page Headers*/

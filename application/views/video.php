@@ -10,7 +10,7 @@
           <br/>
           <br/>
           <h2>Video being produced at this moment.<br/>We appreciate your patience.<br/></h2>
-          <h4> - <i>Underdog idols team</i></h4>
+          <h4> - <i>Underdog Idols team</i></h4>
         </div>
 
       </div>

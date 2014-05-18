@@ -108,6 +108,7 @@ class MY_Controller extends CI_Controller
     }
 
     private function get_site_header(){
+        $this->active_page['base_url'] = base_url();
         if($this->session->userdata('id'))
         {
             return $this->parser->parse("templates/header_login", $this->active_page, TRUE);

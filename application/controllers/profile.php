@@ -21,7 +21,8 @@ class Profile extends MY_Controller {
 	}
 
     public function edit()
-    {
+    {     
+        $this->active_page['profile'] = "active"; 
         $this->load->model('contestant');  
 
         $contestant = $this->contestant->getById($this->session->userdata('id'));
@@ -117,7 +118,6 @@ class Profile extends MY_Controller {
 	  				//echo "failed";
 	  			}
 		    }
-		  /*}*/
 		} 
 		else 
 		{
