@@ -29,7 +29,7 @@
           <form class="signin-form" method="post" action="signin/">
             <div class="row">
               <div class="medium-12 large-12 columns">
-                <h5>Username</h5>
+                <h5>Email</h5>
                 <input type="text" name="username" placeholder="">
               </div>
             </div>
