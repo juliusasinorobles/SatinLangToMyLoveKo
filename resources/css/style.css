@@ -62,8 +62,29 @@ body {
 	border: 2px solid rgba(179, 23, 219, 0.7);
 }
 
+.form-wrapper strong{
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.home-register-form .form-results {
+	margin: 0px 20px 0px 20px;
+}
+
 .form-results {
 	display: none;
+}
+
+.form-results {
+	color: #fff !important;
+	border: 0px !important;
+	background: #9b50d4 !important;
+}
+
+.form-results p {
+	color: #fff !important;
+	margin: 0px !important;
+	margin: 3px;
 }
 /***********************************************************************************************/
 /*Forms*/
@@ -104,7 +125,7 @@ body {
     text-align: left;
     position: relative;
     background: url('../images/ui-content-bg.jpg') no-repeat fixed;
-    background-size: 100%;
+    background-size: cover;
 	background-color: #fff;
     padding: 60px 20px 40px 20px; 
 }
@@ -584,7 +605,7 @@ a.register-btn{
 	box-sizing: border-box;
 }
 
-.contact-us_form textarea {
+.contact-us-form textarea {
 	resize: none;
 	height: 90px;
 }
@@ -744,3 +765,40 @@ a.register-btn{
 }
 /***********************************************************************************************/
 /* Signin content */
+
+/* Signin content */
+/***********************************************************************************************/
+.profile-pic {
+	width: 250px; 
+	height: 250px; 
+	overflow: hidden; 
+	border-radius: 50%;
+	position: relative; 
+	box-shadow: -3px 2px 1px #2d0e40;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.profile-pic img {
+	width: 100%;  
+	background: #333;
+}
+
+.profile-pic .change-trigger {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	background: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 60% 39%;
+	color: #fff;
+	letter-spacing: 2px;
+	display: none;
+}
+
+.profile-pic:hover .change-trigger {
+	display: block;
+}
+/***********************************************************************************************/

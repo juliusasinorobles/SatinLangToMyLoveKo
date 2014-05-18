@@ -32,12 +32,25 @@
         <div class="row"><h3 class="upper-phrase">Let the real record label judge you.</h3></div>
         <div class="row"><h3 class="lower-phrase">This is the time to make it happen!</h3></div>
         <div class="row">
-        	<div class="small-10 columns">
-          	<input type="text" placeholder="Youtube Embedded Link" class="video-field">
-	        </div>
-	        <div class="small-2 columns">
-	          <a href="#" class="button button-field">Submit</a>
-	        </div>
+          <div class="small-12 columns">
+            <form class="home-register-form" method="post" action="register/">
+              <div class="row">
+                <div class="small-10 columns">
+                  <input type="text" name="link" placeholder="Youtube Embedded Link" class="video-field">                
+                </div>
+                <div class="small-2 columns">
+                  <a href="#" id="home-register" class="button button-field">Submit</a>
+                </div>
+              </div>
+              <div class="row">    
+                <div class="small-12 columns">          
+                  <div class="form-results panel callout radius">
+                    ...
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 <section class="main-content">
   <div class="row">
     <div class="medium-6 large-6 columns">
-      <h2 class="yellow-ribbon">Don't have an account yet?</h2>
+      <h2 class="yellow-ribbon" style="margin-bottom: 20px;">Don't have an account yet?</h2>
       <br/>
       <br/>
       <br/>
@@ -25,25 +25,31 @@
     <div class="medium-6 large-6 columns">
       <div class="sign-in-box">     
         <h3>Log in</h3>
-        <form class="form-wrapper sign-in-form">
-          <div class="row">
-            <div class="medium-12 large-12 columns">
-              <h5>Username</h5>
-              <input type="text" placeholder="">
+        <div class="form-wrapper">
+          <form class="signin-form" method="post" action="signin/">
+            <div class="row">
+              <div class="medium-12 large-12 columns">
+                <h5>Username</h5>
+                <input type="text" name="username" placeholder="">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="medium-12 large-12 columns">
-              <h5>Password</h5>
-              <input type="text" placeholder="">
+            <div class="row">
+              <div class="medium-12 large-12 columns">
+                <h5>Password</h5>
+                <input type="password" name="password" placeholder="">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="medium-12 large-12 columns">
-              <input type="button" class="button" value="Submit">
+            <div class="row">
+              <div class="large-4 columns">
+                 <input type="submit" name="submit" value="Submit" class="button [tiny small large] submit-button" />
+              </div>
+              <div class="large-8 columns">
+                <div class="form-results panel callout radius">
+                  ...
+                </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>  
   </div>

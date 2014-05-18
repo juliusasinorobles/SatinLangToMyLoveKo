@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-class Faqs extends CI_Model
+class Contestant extends CI_Model
 {
     private $table;
 
@@ -12,7 +12,7 @@ class Faqs extends CI_Model
     {
         parent::__construct();
         $this->load->database();
-        $this->table = 'faq';
+        $this->table = 'contestant';
     }
 
     public function getAll()
@@ -32,6 +32,18 @@ class Faqs extends CI_Model
     public function getByIP($ip){
         $this->db->select_max('date_created');
         $query = $this->db->get_where($this->table, array('ipaddress'=>$ip));
+        return $query->result();        
+    }
+
+    public function getByEmail($email){
+        $sql = "SELECT * FROM $this->table WHERE BINARY email = ?";
+        $query = $this->db->get_where($this->table, array('email'=>$email));
+        return $query->result();        
+    }
+
+    public function getByUsernamePassword($email, $password){
+        $sql = "SELECT * FROM $this->table WHERE BINARY email = ? AND BINARY password = ?";
+        $query = $this->db->query($sql, array($email, $password));
         return $query->result();        
     }
 

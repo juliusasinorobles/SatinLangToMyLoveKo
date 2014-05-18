@@ -4,13 +4,12 @@ class MY_Controller extends CI_Controller
 {
     public $data = array();
     public $pages = array();
+    public $active_page = array();
     public $output_results = array();
 
     public function __construct()
     {
         parent::__construct();
-
-        date_default_timezone_set('Asia/Manila');
 
         $this->load->helper(array(
             'html_crypt',
@@ -26,6 +25,20 @@ class MY_Controller extends CI_Controller
             'validation',
             'session'
         ));
+
+        $this->active_page = array(
+            "home" => "",
+            "about" => "",
+            "faq" => "",
+            "privacypolicy" => "",
+            "termsandconditions" => "",
+            "contactus" => "",
+            "register" => "",
+            "profile" => "",
+            "profile_edit" => "",
+            "video" => "",
+            "signin" => ""
+        );
 
         $this->pages = array(
             "about" => array(
@@ -63,6 +76,11 @@ class MY_Controller extends CI_Controller
                     "title" => "",
                     "description" => ""
                 ),
+            "profile_edit" => array(
+                    "class" => "profile-header",
+                    "title" => "Profile Edit",
+                    "description" => "Update information about yourself so viewers will know you better."
+                ),
             "video" => array(
                     "class" => "video-header",
                     "title" => "Promotional Video",
@@ -81,10 +99,23 @@ class MY_Controller extends CI_Controller
     {
         $this->data['cpyear'] = date("Y");
         $this->data['base_url'] = base_url();
+        $this->data['active_page'] = $this->active_page;
         $this->data['default_page'] = base_url();
+        $this->data['site_header'] = $this->get_site_header();
         $this->data['body'] = $this->parser->parse($template, $this->data, TRUE);
 
         $this->parser->parse('masterpage', $this->data);
+    }
+
+    private function get_site_header(){
+        if($this->session->userdata('id'))
+        {
+            return $this->parser->parse("templates/header_login", $this->active_page, TRUE);
+        }
+        else
+        {
+            return $this->parser->parse("templates/header", $this->active_page, TRUE);
+        }
     }
 
     public function validate_code(){
@@ -106,6 +137,12 @@ class MY_Controller extends CI_Controller
     public function show_output_results()
     {
         echo json_encode($this->output_results, TRUE);
+    }
+
+    public function debug($val){
+        echo "<pre>";
+        var_dump($val);
+        echo "</pre>";
     }
 
     public function __destruct()

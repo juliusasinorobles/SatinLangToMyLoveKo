@@ -40,43 +40,47 @@
               <br/>
               <p>Fill up the form below and send us your thoughts about the website. Your feedaback is highly anticipated and will help us to improve our service provided by the website.</p>
               <div class="form-wrapper">
-                <form class="contact-us_form">
+                <form class="contact-us-form" method="post" action="contactus/">
                   <div class="row">
                     <div class="large-12 columns">
-                      <label>Full Name
-                        <input type="text" placeholder="what's your name?" />
+                      <label><strong>Full Name</strong>
+                        <input type="text" name="name" placeholder="what's your name?" />
                       </label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="large-12 columns">
-                      <label>Email Address
-                        <input type="text" placeholder="you@email.com" />
+                      <label><strong>Email Address</strong>
+                        <input type="text" name="email" placeholder="you@email.com" />
                       </label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="large-12 columns">
-                      <label>Message
-                        <textarea placeholder="give us your thoughts"></textarea>
+                      <label><strong>Message</strong>
+                        <textarea name="message" placeholder="give us your thoughts"></textarea>
                       </label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="large-12 columns">
-                      <label>Code
+                      <label><strong>Code</strong>
                         <div class="captcha">
-                          <input  class="captcha-key" type="hidden" />
                           <img class="captcha-code" src="" />
                           <i class="fa fa fa-refresh fa-2x captcha-refresh"></i>
-                          <input  class="captcha-input" type="text" placeholder="are you human?" />
+                          <input  class="captcha-input" type="text" name="code" placeholder="are you human?" />
                         </div>
                       </label>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="large-12 columns">
-                       <a href="#" class="button [tiny small large] submit-button">Submit</a>
+                    <div class="large-4 columns">
+                        <input type="submit" name="submit" value="Submit" class="button [tiny small large] submit-button" />
+                    </div>
+                    <div class="large-8 columns">
+                      <div class="form-results panel callout radius">
+                        ...
+                      </div>
                     </div>
                   </div>              
                 </form>

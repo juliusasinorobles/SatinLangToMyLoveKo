@@ -13,19 +13,19 @@ function content_page_header($page){
     return $html;
 }
 
-function content_profile_header($page){
+function content_profile_header($page, $picture, $full_name, $about){
 	$html = '<header class="'. $page['class'] .'">
                 <div class="row">
                     <div class="large-4 columns">
-                        <div style="width: 250px; height: 250px; overflow: hidden; border-radius: 50%; box-shadow: -3px 2px 1px #2d0e40;">
-                            <img src="resources/images/sample.jpg" style="width: 100%;  background: #333; "/>
-                        </div>                    	
+                        <div class="profile-pic">
+                            <img src="'. (empty($picture) ? 'resources/images/default-profile-pic.jpg' : $picture) .'" />
+                        </div>       	
                     </div>
                     <div class="large-8 columns">
-                        <h1 class="page-title">john doe</h1>
-                    	<h4 class="page-sub-title">" I\'m still alive but I\'m barely breathing<br/>Just prayin\' to a God that I don\'t believe in "</h4>
+                        <h1 class="page-title">'. $full_name .'</h1>
+                    	<h4 class="page-sub-title">"'. ( empty($about) ? '<i>Introduce yourself to the viewers. Write something about yourself. </i>' : nl2br($about) ) .'"</h4>
                     	<div>
-                    		<a class="button small">Edit Profile</a>
+                    		<a class="button small" href="profile/edit">Edit Profile</a>
                     	</div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-class Faqs extends CI_Model
+class Contacts extends CI_Model
 {
     private $table;
 
@@ -12,7 +12,7 @@ class Faqs extends CI_Model
     {
         parent::__construct();
         $this->load->database();
-        $this->table = 'faq';
+        $this->table = 'contactus';
     }
 
     public function getAll()

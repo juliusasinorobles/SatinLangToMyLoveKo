@@ -12,7 +12,7 @@
   <div class="row" >
     <div class="medium-12 large-12 columns">
       <div class="upload-video-form">
-      	<h1 >Upload Video</h1>
+      	<h1 >Submit Video</h1>
         <div class="form-wrapper">
           <form class="upload-video-form">
             <div class="row">
@@ -20,7 +20,7 @@
                   <input type="text" placeholder="www.youtube.com/watch?v=moSFlvxnbgk" class="video-field">
               </div>
               <div class="small-2 columns">
-                <a href="#" class="button button-field">Upload</a>
+                <a href="#" class="button button-field">Submit</a>
               </div>
             </div>  
           </form>

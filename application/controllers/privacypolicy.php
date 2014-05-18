@@ -11,6 +11,7 @@ class Privacypolicy extends MY_Controller {
     {
         $this->data['title'] = "Privacy Policy | Underdog Idols";
         $this->data['content_header'] = content_page_header($this->pages['privacypolicy']);
+        $this->active_page['privacypolicy'] = "active";
 		$this->template('privacypolicy');
 	}
 

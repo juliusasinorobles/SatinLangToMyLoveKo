@@ -87,28 +87,28 @@
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <label>Name
+                  <label><strong>Name</strong>
                     <input type="text" name="name" placeholder="john doe" />
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <label>Email Address
+                  <label><strong>Email Address</strong>
                     <input type="text" name="email" placeholder="you@email.com" />
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <label>Question
+                  <label><strong>Question</strong>
                     <textarea name="question" placeholder="your question here"></textarea>
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <label>Code
+                  <label><strong>Code</strong>
                     <div class="captcha">
                       <img class="captcha-code" src="" />
                       <i class="fa fa fa-refresh fa-2x captcha-refresh"></i>
@@ -118,13 +118,12 @@
                 </div>
               </div>
               <div class="row">
-                <div class="large-6 columns">
+                <div class="large-4 columns">
                    <input type="submit" name="submit" value="Submit" class="button [tiny small large] submit-button" />
                 </div>
-                <div class="large-6 columns">
+                <div class="large-8 columns">
                   <div class="form-results panel callout radius">
-                    <h5>This is a callout panel.</h5>
-                    <p>It's a little ostentatious, but useful for important content.</p>
+                    ...
                   </div>
                 </div>
               </div>    

@@ -75,13 +75,14 @@ $(document).ready(function(){
 
 	});
 
-	$(document).on('click', '.faq-form input[type=submit]', function(){
+	$(document).on('click', '.faq-form input[type=submit], .contact-us-form input[type=submit], .main-register-form input[type=submit], #home-register, .signin-form input[type=submit]', function(){
 
-		var action = $(this).closest('.faq-form').attr("action");
-		var inputs = $(this).closest('.faq-form').serializeFormJSON();
-			inputs.submit = 'faq';
-		
-		___form_d_submit(action, inputs);
+		var cls = $(this).closest('form').attr('class');
+		var action = $(this).closest('form').attr("action");
+		var inputs = $(this).closest('form').serializeFormJSON();
+			inputs.submit = cls.substring(0, cls.length - 5);
+
+		___form_d_submit(action, inputs, $(this));
 
 		return false;
 	});
@@ -98,9 +99,9 @@ function ___img_gen_code() {
 
 	    netCall = $.ajax({
 			        type: "post",
-			        url: 'contactus/get_code',
+			        url: 'captcha/get_code',
 			        success: function(response) {
-				    	$('.captcha .captcha-code').attr('src', 'contactus/set_code/?id=' + response);
+				    	$('.captcha .captcha-code').attr('src', 'captcha/set_code/?id=' + response);
 			        }			        
 			    }).done(function(response){
 			    	$('.captcha .captcha-refresh').removeClass('fa-spin');
@@ -110,7 +111,7 @@ function ___img_gen_code() {
 	}
 }
 
-function ___form_d_submit(des, d)
+function ___form_d_submit(des, d, trigger)
 {    
     if ( netCall == null ) {
     	
@@ -123,9 +124,21 @@ function ___form_d_submit(des, d)
 			        cache: false,
 			        success: function(res) {
 						___form_show_res(res.message);
+						
+						if(res.success == true){
+							trigger.closest('form')[0].reset();
+							
+							if(res.redirect !== 'undefined'){
+								window.location = res.redirect;	
+							}
+
+						}
+
+		        		netCall = null;
 					},
 					error: function(res){
 						console.log("Error: " + res);
+		        		netCall = null;
 					}
 			    }).done(function(res){
 			    	console.log("Done: " + res);
@@ -158,5 +171,5 @@ function ___form_show_res(msg){
 	$(".form-results").slideDown();
 	setTimeout(function(){
 		$(".form-results").slideUp();	
-	}, 2000)
+	}, 2500)
 }

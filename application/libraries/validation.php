@@ -148,6 +148,41 @@ class validation
     }
 
     /**
+    * @method Validate if valid url 
+    *
+    *
+    * Check if value is a valid url
+    *
+    */
+    public function is_url()
+    {
+        $string = $this->value;
+        
+        if(!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $string)) {
+            $this->err[] = $this->field . ' is not a valid url.';
+        }
+    
+        return $this;
+    }
+
+    /**
+    * @method Validate if valid url 
+    *
+    *
+    * Check if value is a valid url
+    *
+    */
+    public function is_used($dataset)
+    {
+
+        if(count($dataset)){
+            $this->err[] = $this->field . ' already in use.';    
+        }
+
+        return $this;
+    }
+
+    /**
      * @method Min/Max string allowed
      * 
      * Limits the min/max input string 

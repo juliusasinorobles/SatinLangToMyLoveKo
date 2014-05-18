@@ -10,6 +10,7 @@ class Video extends MY_Controller {
     public function index()
     {
         $this->data['title'] = "Video | Underdog Idols";
+        $this->active_page['video'] = "active";
         $this->data['content_header'] = content_page_header($this->pages['video']);
         $this->template('video');
 	}

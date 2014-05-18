@@ -10,6 +10,7 @@ class Home extends MY_Controller {
     public function index()
     {
         $this->data['title'] = "Home | Underdog Idols";
+        $this->active_page['home'] = "active";
 		$this->template('home');
 	}
 

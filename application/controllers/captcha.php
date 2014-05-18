@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Termsandconditions extends MY_Controller {
+class Captcha extends MY_Controller {
 
 	public function __construct()
     {
@@ -9,11 +9,16 @@ class Termsandconditions extends MY_Controller {
 
     public function index()
     {
-        $this->data['title'] = "Terms & Conditions | Underdog Idols";
-        $this->active_page['termsandconditions'] = "active";
-        $this->data['content_header'] = content_page_header($this->pages['termsandconditions']);
-		$this->template('termsandconditions');
-	}
+        //To do...
+    }
+
+    public function set_code(){    
+        $this->validate_code();
+    }
+
+    public function get_code(){    
+        $this->generate_code();
+    }
 
     public function __destruct()
     {
