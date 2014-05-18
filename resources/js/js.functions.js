@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 	});
 
-	$(document).on('click', '.faq-form input[type=submit], .contact-us-form input[type=submit], .main-register-form input[type=submit], #home-register, .signin-form input[type=submit]', function(){
+	$(document).on('click', '.faq-form input[type=submit], .contact-us-form input[type=submit], .main-register-form input[type=submit], #home-register, .signin-form input[type=submit], .profiledit-form input[type=submit]', function(){
 
 		var cls = $(this).closest('form').attr('class');
 		var action = $(this).closest('form').attr("action");
@@ -89,6 +89,20 @@ $(document).ready(function(){
 	
 	___img_gen_code();
 
+
+	$("#upload_photo").ajaxForm();
+	
+	$(document).on('change', '#input-file', function(){
+		$options = {
+			success : function(response){
+				console.log(response);
+				response = JSON.parse(response);
+				console.log(response.url);
+				$("#profile-pic-image").attr('src', response.url);				
+			}
+		};					
+		$('#upload_photo').ajaxSubmit($options);
+	});
 });
 
 function ___img_gen_code() {
@@ -173,3 +187,4 @@ function ___form_show_res(msg){
 		$(".form-results").slideUp();	
 	}, 2500)
 }
+

@@ -30,6 +30,7 @@
         <script src="resources/js/jquery.js"></script>
         <script src="resources/js/fastclick.js"></script>
         <script src="resources/js/modernizr.js"></script>
+        <script src="resources/js/jquery.form.js"></script>
         
         <script src="resources/js/foundation/foundation.js"></script>
         <script src="resources/js/foundation/foundation.alert.js"></script>

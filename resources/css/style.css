@@ -801,4 +801,8 @@ a.register-btn{
 .profile-pic:hover .change-trigger {
 	display: block;
 }
+
+.file-input {
+	opacity: 0;
+}
 /***********************************************************************************************/

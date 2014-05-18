@@ -60,7 +60,7 @@ class Register extends MY_Controller {
             else
             {
                 $contestant = array();
-                $contestant['first_name'] = $this->input->post('full_name');
+                $contestant['full_name'] = $this->input->post('full_name');
                 $contestant['password'] = $this->input->post('password');
                 $contestant['email'] = $this->input->post('email');
 
@@ -73,9 +73,14 @@ class Register extends MY_Controller {
                     }
 
                     //mail($to, $subject, $message);
-                    $this->output_results['success'] = TRUE;
-                    $this->output_results['redirect'] = "profile/";
-                    $this->output_results['message'] = $this->action_message['success_insert'];
+                    $contestant = $this->contestant->getByUsernamePassword($this->input->post('email'), $this->input->post('password'));
+		            if(count($contestant))
+		            {
+	                    $this->session->set_userdata($contestant[0]);
+	                    $this->output_results['success'] = TRUE;
+	                    $this->output_results['redirect'] = "profile/";
+	                    $this->output_results['message'] = $this->action_message['success_insert'];
+					}
                 }else{               
                     $this->output_results['message'] = $this->action_message['success_insert'];
                 }

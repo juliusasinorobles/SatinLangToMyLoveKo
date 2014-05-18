@@ -37,9 +37,15 @@ class Contestant extends CI_Model
 
     public function getByEmail($email){
         $sql = "SELECT * FROM $this->table WHERE BINARY email = ?";
-        $query = $this->db->get_where($this->table, array('email'=>$email));
+        $query = $this->db->get_where($sql, array('email'=>$email));
         return $query->result();        
     }
+	
+	public function getByEmailExcept($id, $email){
+		$sql = "SELECT * FROM $this->table WHERE id <> ? AND BINARY email = ?";
+		$query = $this->db->query($sql, array('id'=>$id, 'email'=>$email));
+		return $query->result();
+	}
 
     public function getByUsernamePassword($email, $password){
         $sql = "SELECT * FROM $this->table WHERE BINARY email = ? AND BINARY password = ?";
