@@ -3,6 +3,7 @@
 class Profile extends MY_Controller {
 
 	public $action_message = array(
+		'success_video' => "Video link successfully saved",
 		'success_update' => "Record successfully updated",
 		'failed_update' => "Unable to process your request"
 	);
@@ -10,20 +11,67 @@ class Profile extends MY_Controller {
 	public function __construct()
     {
         parent::__construct();
+        $this->load->model('contestant');  
+    }
+
+    public function _remap()
+    {
+    	$this->index();
     }
 
     public function index()
-    {
-        $this->data['title'] = "Profile | Underdog Idols";       
-        $this->active_page['profile'] = "active"; 
-        $this->data['content_header'] = content_profile_header($this->pages['profile'], $this->session->userdata('picture'), $this->session->userdata('full_name'), $this->session->userdata('about'));
-        $this->template('profile/profile');
+    {        
+        $this->load->model('contestant');  
+
+        if($this->input->post('submit')) 
+        {
+        	if($this->input->post('submit') == "profiledit")
+        	{	
+            	$this->save();
+        	}
+        	else if($this->input->post('submit') == "upload-video")
+        	{
+	            $this->submit_video();
+        	}
+        }
+        else if($this->uri->segment(2) == "edit")
+        {
+        	$this->edit();
+        }
+        else 
+        { 
+        
+	        $this->data['title'] = "Profile | Underdog Idols";       
+	        $this->active_page['profile'] = "active"; 
+
+	        $contestant = $this->contestant->getById($this->session->userdata('id'));
+	        $this->session->set_userdata($contestant[0]);
+
+	        $this->data['content_header'] = content_profile_header($this->pages['profile'], $this->session->userdata('picture'), $this->session->userdata('full_name'), $this->session->userdata('about'));
+	        $this->data['videos'] = $this->videos();
+	        $this->template('profile/profile');
+    
+        }
+	}
+
+	private function videos(){
+		
+        $this->load->model('video');  
+        $videos = $this->video->getByContestantId($this->session->userdata('id'));
+		if(count($videos))
+		{
+			$temp_data['videos'] = $videos;
+            return $this->parser->parse("profile/profile_videos", $temp_data, TRUE);
+		}
+		else
+		{
+			return "<p>No videos yet. Submit your videos now!</p>";
+		}
 	}
 
     public function edit()
     {     
-        $this->active_page['profile'] = "active"; 
-        $this->load->model('contestant');  
+        $this->active_page['profile'] = "active";         
 
         $contestant = $this->contestant->getById($this->session->userdata('id'));
         $this->session->set_userdata($contestant[0]);
@@ -31,7 +79,8 @@ class Profile extends MY_Controller {
         $this->data['title'] = "Profile Edit | Underdog Idols";        
         $this->data['content_header'] = content_page_header($this->pages['profile_edit']);
         $this->data['contestant'] = $contestant;
-        
+        $this->data['contestant'][0]->picture = ( empty($this->data['contestant'][0]->picture) ? 'resources/images/default-profile-pic.jpg' : $this->data['contestant'][0]->picture );
+
         $this->data['contestant_male'] = "";
         $this->data['contestant_female'] = "";
         
@@ -83,6 +132,7 @@ class Profile extends MY_Controller {
 	
 	public function upload()
 	{
+        $this->load->model('contestant');  
 		$path = "uploads/profilepic/";
 		
 		$allowedExts = array("jpeg", "jpg", "png");
@@ -95,36 +145,45 @@ class Profile extends MY_Controller {
 		&& ($_FILES["input-file"]["size"] < 200000)) 
 		{
 			
-		  if ($_FILES["input-file"]["error"] > 0) 
-		  {
-		     $_FILES["input-file"]["error"];
-		  } 
-		  else 
-		  {
-		   /*
-			if (file_exists($path . $_FILES["input-file"]["name"])) 
-					   {
-						 echo $_FILES["input-file"]["name"] . " already exists. ";
-					   } 
-					   else 
-					   {*/
-		   
-		    	if(move_uploaded_file($_FILES["input-file"]["tmp_name"], $path . $_FILES["input-file"]["name"]) !== FALSE)
-			    {
-	  				//echo "success";
-	  			}
-	  			else
-	  			{
-	  				//echo "failed";
-	  			}
-		    }
+			if ($_FILES["input-file"]["error"] > 0) 
+			{	
+				$this->output_results['message'] = "System error, kindly check parameter.";
+			} 
+			else 
+			{
+				$info = new SplFileInfo($_FILES["input-file"]["name"]);
+				$ui_filename = "profile".$this->session->userdata('id')."image.".$info->getExtension();
+				$ui_fullfilepath = $path.$ui_filename;
+
+				if(move_uploaded_file($_FILES["input-file"]["tmp_name"], $ui_fullfilepath) !== FALSE)
+				{
+					$contestant = array("picture"=>$ui_fullfilepath);
+					if($this->contestant->update($this->session->userdata('id'), $contestant))
+					{
+						$contestant = $this->contestant->getById($this->session->userdata('id'));
+						$this->output_results['url'] = $ui_fullfilepath;
+						$this->session->set_userdata($contestant[0]);					
+					
+						$this->output_results['success'] = TRUE;
+						$this->output_results['message'] = "Profile picture updated.";
+					}
+					else
+					{
+						$this->output_results['message'] = "Unable to process request right now. Please try again later.";
+						
+					}
+
+				}
+				else
+				{
+					$this->output_results['message'] = "Unable to upload image.";
+				}
+			}
 		} 
 		else 
-		{
-		  //file invalid
+		{	
+			$this->output_results['message'] = "Invalid file.";	
 		}
-		
-		$this->output_results['url'] = $path . $_FILES["input-file"]["name"];
 		
 		$this->show_output_results();
 	}
@@ -202,10 +261,51 @@ class Profile extends MY_Controller {
 		}
 	}
 
+	private function submit_video()
+	{
+		if($this->check_link())
+		{
+
+	        $this->output_results['success'] = TRUE;
+	        $this->output_results['message'] = $this->action_message['success_video'];
+            $this->output_results['redirect'] = $this->payment($this->input->post('link'));
+
+		}
+
+        $this->show_output_results();
+	}
+
+	private function check_link()
+	{
+
+        $this->validation->field_name('Submit')
+        ->field_value($this->input->post('submit'))
+        ->is_equal('upload-video')
+        ->required();
+
+        $this->validation->field_name('Link')
+        ->field_value($this->input->post('link'))
+        ->is_url()
+        ->is_youtube_url()
+        ->required();
+
+        if (!$this->validation->err) 
+        {    
+            return true;
+        }
+        else 
+        {
+            $this->output_results['message'] = $this->validation->err;
+            return false;
+        }        
+
+	}
+
     public function __destruct()
     {
         parent::__destruct();
     }
+
 
 }
 

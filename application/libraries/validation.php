@@ -166,6 +166,51 @@ class validation
     }
 
     /**
+    * @method Validate if valid youtube url 
+    *
+    *
+    * Check if value is a valid youtube url
+    *
+    */
+    public function is_youtube_url()
+    {
+        $string = $this->value;
+        
+        if(!empty($string)){
+
+            $string = explode("v=", $string, 2);
+
+            if(count($string) == 2){
+
+                if(!empty($string[1])){
+
+                    /*string[1] is the video id in youtube*/
+                    $headers = get_headers('http://gdata.youtube.com/feeds/api/videos/'.$string[1]);
+
+                    if (!strpos($headers[0], '200')) {
+                
+                        $this->err[] = $this->field . ' is not a valid Youtube url.';
+
+                    }
+
+                }
+
+            }else{
+
+                $this->err[] = $this->field . ' is not a valid Youtube url.';
+            
+            }
+
+        }else{
+
+            $this->err[] = $this->field . ' is not a valid Youtube url.';
+        
+        }
+    
+        return $this;
+    }
+
+    /**
     * @method Validate if valid url 
     *
     *

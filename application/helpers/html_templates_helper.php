@@ -18,7 +18,7 @@ function content_profile_header($page, $picture, $full_name, $about){
                 <div class="row">
                     <div class="large-4 columns">
                         <div class="profile-pic">
-                            <img src="'. (empty($picture) ? 'resources/images/default-profile-pic.jpg' : $picture) .'" />
+                            <img src="'. ( empty($picture) ? 'resources/images/default-profile-pic.jpg' : $picture ) .'" />
                         </div>       	
                     </div>
                     <div class="large-8 columns">

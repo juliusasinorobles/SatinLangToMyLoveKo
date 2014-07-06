@@ -18,14 +18,14 @@ class Faqs extends CI_Model
     public function getAll()
     {
         //$this->db->select('columns', 'to', 'be', 'selected');
-        $query = $this->db->get($this->table);
+        $query = $this->db->get_where($this->table, array('active'=>1));
         return $query->result();
     }
 
     public function getById($id)
     {
         //$this->db->select('columns', 'to', 'be', 'selected');
-        $query = $this->db->get_where($this->table, array('id'=>$id));
+        $query = $this->db->get_where($this->table, array('id'=>$id,'active'=>1));
         return $query->result();        
     }
 

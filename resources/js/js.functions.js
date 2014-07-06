@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 	});
 
-	$(document).on('click', '.faq-form input[type=submit], .contact-us-form input[type=submit], .main-register-form input[type=submit], #home-register, .signin-form input[type=submit], .profiledit-form input[type=submit]', function(){
+	$(document).on('click', '.faq-form input[type=submit], .contact-us-form input[type=submit], .main-register-form input[type=submit], #home-register, .signin-form input[type=submit], .profiledit-form input[type=submit], .upload-video-form input[type=submit]', function(){
 
 		var cls = $(this).closest('form').attr('class');
 		var action = $(this).closest('form').attr("action");
@@ -93,12 +93,10 @@ $(document).ready(function(){
 	$("#upload_photo").ajaxForm();
 	
 	$(document).on('change', '#input-file', function(){
-		console.log("test");
 		$options = {
 			success : function(response){
-				console.log(response);
 				response = JSON.parse(response);
-				console.log(response.url);
+				$("#profile-pic-image").attr('src', "");
 				$("#profile-pic-image").attr('src', response.url);				
 			}
 		};					
@@ -143,7 +141,7 @@ function ___form_d_submit(des, d, trigger)
 						if(res.success == true){
 							trigger.closest('form')[0].reset();
 							
-							if(res.redirect !== 'undefined'){
+							if(typeof res.redirect !== 'undefined'){
 								window.location = res.redirect;	
 							}
 
@@ -168,19 +166,17 @@ function ___form_d_submit(des, d, trigger)
 }
 
 function ___form_show_res(result){
-	
-	if(result.redirect === 'undefined'){
+	if(typeof result.redirect === 'undefined'){
 		var msg_temp = "";
-
-		if (result.msg instanceof Array) 
+		if (result.message instanceof Array) 
 		{
-			$(msg).each(function(i){
-				msg_temp += '<p>' +  result.msg[i] + '<p>';
+			$(result.message).each(function(i){
+				msg_temp += '<p>' +  result.message[i] + '<p>';
 			});
 		}
 		else
 		{
-			msg_temp = '<p>' + result.msg + '</p>'
+			msg_temp = '<p>' + result.message + '</p>'
 		}
 
 		$(".form-results").html(msg_temp);

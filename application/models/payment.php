@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-class Contacts extends CI_Model
+class Payment extends CI_Model
 {
     private $table;
 
@@ -12,7 +12,7 @@ class Contacts extends CI_Model
     {
         parent::__construct();
         $this->load->database();
-        $this->table = 'contactus';
+        $this->table = 'payment';
     }
 
     public function getAll()
@@ -29,9 +29,24 @@ class Contacts extends CI_Model
         return $query->result();        
     }
 
-    public function getByIP($ip){
-        $this->db->select_max('date_created');
-        $query = $this->db->get_where($this->table, array('ipaddress'=>$ip));
+    public function getByVideoId($id)
+    {
+        //$this->db->select('columns', 'to', 'be', 'selected');
+        $query = $this->db->get_where($this->table, array('video_id'=>$id, 'active'=>1));
+        return $query->result();        
+    }
+
+    public function getByTransId($id)
+    {
+        //$this->db->select('columns', 'to', 'be', 'selected');
+        $query = $this->db->get_where($this->table, array('trans_id'=>$id, 'active'=>1));
+        return $query->result();        
+    }
+
+    public function getByContestantId($id)
+    {
+        //$this->db->select('columns', 'to', 'be', 'selected');
+        $query = $this->db->get_where($this->table, array('contestant_id'=>$id, 'active'=>1));
         return $query->result();        
     }
 

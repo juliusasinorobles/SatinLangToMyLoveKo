@@ -9,7 +9,7 @@
         <div class="large-6 columns">
           <label><strong>Profile Image</strong>
             <div class="profile-pic" style="margin: auto; margin-bottom: 20px;">
-                <img src="resources/images/default-profile-pic.jpg" id="profile-pic-image"/>
+                <img src="{picture}" id="profile-pic-image"/>
                 <form enctype="multipart/form-data" id="upload_photo" action="profile/upload" method="post">
                     <div class="change-trigger">
                     	<input type="file" class="file-input" id="input-file" name="input-file"/>
@@ -20,7 +20,7 @@
           </label>
           </div>
           
-        <form method="post" action="profile/save" class="profiledit-form">
+        <form method="post" action="profile/" class="profiledit-form">
         <div class="row">
             <div class="large-6 columns">
               <label><strong>About yourself *</strong>
@@ -42,18 +42,6 @@
           </div>
           <div class="row">
             <div class="large-6 columns">
-              <label><strong>Password</strong>
-                <input type="password" name="password" placeholder="" />
-              </label>
-            </div>
-            <div class="large-6 columns">
-              <label><strong>Re-type Password</strong>
-                <input type="password" name="repassword" placeholder="" />
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-6 columns">
               <label><strong>Gender *</strong>
                 <select name="gender">
                   <option value="" selected></option>
@@ -65,6 +53,18 @@
             <div class="large-6 columns">
               <label><strong>Birthdate *</strong>
                 <input type="text" name="birthdate" value="{birthdate}" id="dp1">
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label><strong>Password</strong>
+                <input type="password" name="password" placeholder="" />
+              </label>
+            </div>
+            <div class="large-6 columns">
+              <label><strong>Re-type Password</strong>
+                <input type="password" name="repassword" placeholder="" />
               </label>
             </div>
           </div>

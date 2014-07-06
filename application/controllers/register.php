@@ -62,25 +62,29 @@ class Register extends MY_Controller {
                 $contestant = array();
                 $contestant['full_name'] = $this->input->post('full_name');
                 $contestant['password'] = $this->input->post('password');
+                $contestant['ipaddress'] = $this->input->ip_address();
                 $contestant['email'] = $this->input->post('email');
 
                 if($contestant['id'] = $this->contestant->insert($contestant))
                 {
-                    if($this->input->post('link'))
-                    {
-                        //redirect to payment
-                        //$this->output_results['redirect'] = "payment/";
-                    }
-
                     //mail($to, $subject, $message);
                     $contestant = $this->contestant->getByUsernamePassword($this->input->post('email'), $this->input->post('password'));
 		            if(count($contestant))
 		            {
 	                    $this->session->set_userdata($contestant[0]);
 	                    $this->output_results['success'] = TRUE;
-	                    $this->output_results['redirect'] = "profile/";
 	                    $this->output_results['message'] = $this->action_message['success_insert'];
-					}
+
+                        if($this->input->post('link'))
+                        {                            
+                            $this->output_results['redirect'] = $this->payment($this->input->post('link'));
+                        }
+                        else
+                        {
+                            $this->output_results['redirect'] = "profile/";
+                        }
+
+                    }
                 }else{               
                     $this->output_results['message'] = $this->action_message['success_insert'];
                 }
@@ -103,6 +107,7 @@ class Register extends MY_Controller {
             $this->validation->field_name('Link')
             ->field_value($this->input->post('link'))
             ->is_url()
+            ->is_youtube_url()
             ->required();
         }
         else

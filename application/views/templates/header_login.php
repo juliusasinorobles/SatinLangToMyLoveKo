@@ -13,7 +13,7 @@
                 <ul class="master-menu">
                     <li class="{faq}"><a href="faq">FAQ</a></li>
                     <li class="{privacypolicy}"><a href="privacypolicy">Privacy</a></li>
-                    <li class="{register}"><a href="register">Register</a></li>
+                    <li class="{terms}"><a href="termsandconditions">Terms</a></li>
                     <li class="{signout}"><a href="signout">Sign Out</a></li>
                 </ul>
             </div>

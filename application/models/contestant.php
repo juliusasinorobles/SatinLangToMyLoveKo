@@ -18,32 +18,26 @@ class Contestant extends CI_Model
     public function getAll()
     {
         //$this->db->select('columns', 'to', 'be', 'selected');
-        $query = $this->db->get($this->table);
+        $query = $this->db->get_where($this->table, array('active'=>1));
         return $query->result();
     }
 
     public function getById($id)
     {
         //$this->db->select('columns', 'to', 'be', 'selected');
-        $query = $this->db->get_where($this->table, array('id'=>$id));
-        return $query->result();        
-    }
-
-    public function getByIP($ip){
-        $this->db->select_max('date_created');
-        $query = $this->db->get_where($this->table, array('ipaddress'=>$ip));
+        $query = $this->db->get_where($this->table, array('id'=>$id,'active'=>1));
         return $query->result();        
     }
 
     public function getByEmail($email){
         $sql = "SELECT * FROM $this->table WHERE BINARY email = ?";
-        $query = $this->db->get_where($sql, array('email'=>$email));
+        $query = $this->db->query($sql, array($email));
         return $query->result();        
     }
 	
 	public function getByEmailExcept($id, $email){
 		$sql = "SELECT * FROM $this->table WHERE id <> ? AND BINARY email = ?";
-		$query = $this->db->query($sql, array('id'=>$id, 'email'=>$email));
+		$query = $this->db->query($sql, array($id, $email));
 		return $query->result();
 	}
 

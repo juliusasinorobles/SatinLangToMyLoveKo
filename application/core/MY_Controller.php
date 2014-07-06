@@ -93,6 +93,8 @@ class MY_Controller extends CI_Controller
                 )
         );
 
+        $this->redirect_sessions();
+
     }
 
     public function template($template = '')
@@ -102,12 +104,14 @@ class MY_Controller extends CI_Controller
         $this->data['active_page'] = $this->active_page;
         $this->data['default_page'] = base_url();
         $this->data['site_header'] = $this->get_site_header();
+        $this->data['site_footer'] = $this->get_site_footer();
         $this->data['body'] = $this->parser->parse($template, $this->data, TRUE);
 
         $this->parser->parse('masterpage', $this->data);
     }
 
-    private function get_site_header(){
+    private function get_site_header()
+    {
         $this->active_page['base_url'] = base_url();
         if($this->session->userdata('id'))
         {
@@ -119,7 +123,60 @@ class MY_Controller extends CI_Controller
         }
     }
 
-    public function validate_code(){
+    private function get_site_footer()
+    {
+        if($this->session->userdata('id'))
+        {
+            return $this->parser->parse("templates/footer_login", $this->active_page, TRUE);
+        }
+        else
+        {
+            return $this->parser->parse("templates/footer", $this->active_page, TRUE);
+        }
+    }
+
+    public function payment($link)
+    {
+        if($this->session->userdata('id'))
+        {
+            $this->load->model('video');
+            $this->load->model('payment');
+
+            $video = array();
+            $video['contestant_id'] = $this->session->userdata('id');
+            $video['link'] = $link;
+            //$video['genre'] = "";
+
+            if($video['id'] = $this->video->insert($video))
+            {
+                $trans_id = $this->generate_trans_id($video);
+                return $this->paypal_prelaunch($trans_id);
+            }
+
+        }
+    }
+
+    private function generate_trans_id($video)
+    {
+        $data = $this->video->getByIdInactive($video['id']);
+        if(count($data) != 0)
+        {
+            $video = $data[0];
+            $trans_id = "UIVREG".date("YmdHis")."c".$video->contestant_id."v".$video->id;
+            return $trans_id;
+        }
+        return "";
+    }
+
+    private function paypal_prelaunch($trans_id)
+    {
+        $invoice = '&invoice='.$trans_id;
+        $paypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97W82MDRDWB7N'.$invoice;
+        return $paypal;
+    }
+
+    public function validate_code()
+    {
         $this->image_generator->generate();
     }
 
@@ -128,6 +185,24 @@ class MY_Controller extends CI_Controller
         $encrypted_code = encrypt($this->image_generator->populate());
         $this->session->set_userdata('captcha', $encrypted_code);
         echo $encrypted_code;
+    }
+
+    private function redirect_sessions()
+    {       
+        $redirect_on = array(
+            "home",
+            "register",
+            "signin"
+            ); 
+
+        if($this->session->userdata('id'))
+        {
+            if(in_array($this->uri->segment(1), $redirect_on) || $this->uri->segment(1) == false)
+            {
+                header("Location:".base_url()."profile");
+                exit;   
+            }
+        }
     }
 
     public function mail($to, $subject, $message)
