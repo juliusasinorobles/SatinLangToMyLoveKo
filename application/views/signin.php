@@ -30,7 +30,7 @@
             <div class="row">
               <div class="medium-12 large-12 columns">
                 <h5>Email</h5>
-                <input type="text" name="username" placeholder="">
+                <input type="text" name="email" placeholder="">
               </div>
             </div>
             <div class="row">

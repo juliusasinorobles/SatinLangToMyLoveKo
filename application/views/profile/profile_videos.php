@@ -1,7 +1,12 @@
 <ul>
   {videos}
     <li>
-      <a href="{link}">&nbsp;</a>
+      <a href="profile/video/{id}" target="_blank" title="{link}">
+      	<b>{video_title}</b>
+		<img src="{thumbnail_link}" title={video_title}/>
+      	<span>Date Registered:&nbsp;&nbsp;{date_created}</span><br/>
+      	<span>Genre:&nbsp;&nbsp;{genre}</span><br/>
+      </a>
     </li>
   {/videos}
 </ul>

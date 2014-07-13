@@ -33,4 +33,21 @@ function content_profile_header($page, $picture, $full_name, $about){
 	return $html;
 }
 
+function content_profile_header_public($page, $picture, $full_name, $about){
+    $html = '<header class="'. $page['class'] .'">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <div class="profile-pic">
+                            <img src="'. ( empty($picture) ? 'resources/images/default-profile-pic.jpg' : $picture ) .'" />
+                        </div>          
+                    </div>
+                    <div class="large-8 columns">
+                        <h1 class="page-title">'. $full_name .'</h1>
+                        <h4 class="page-sub-title">"'. ( empty($about) ? '<i>Meet your new star!</i>' : nl2br($about) ) .'"</h4>
+                    </div>
+                </div>
+            </header>';
+    return $html;
+}
+
 ?>

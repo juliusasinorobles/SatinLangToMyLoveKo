@@ -14,8 +14,12 @@ class Signout extends MY_Controller {
 
     public function index()
     {  
-        $this->session->sess_destroy();
         header("location:home");
+        session_start();
+        $this->session->sess_destroy();
+        session_destroy();
+        session_start();
+        exit;
 	}
 
     public function __destruct()

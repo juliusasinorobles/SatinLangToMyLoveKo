@@ -720,16 +720,62 @@ a.register-btn{
 	list-style: none;
 	display: inline-block;
 	padding: 10px 10px;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 1);
+}
+
+.my-video-list ul li:hover {
+	color: #fff;
+	box-shadow: -1px 0px 1px rgba(45,14,64, 0.4);
+}
+
+.my-video-list ul li:hover a{
+	color: #fff;
 }
 
 .my-video-list ul li a {
-	height: 200px;
+	min-height: 200px;
 	width: 275px;
 	display: block;
-	background: #ddd;
-	border-radius: 5px;
-	box-shadow: -1px 0px 1px rgba(45,14,64, 0.4);
+	overflow: hidden;
+	color: rgba(255, 255, 255, 0.75);
 }
+
+.my-video-list ul li img {
+	min-height: 206px;
+	min-width: 275px;
+}
+
+/* Public Video */
+.my-public-video {
+	text-align: center;
+}
+
+.video-object {
+	width: 100%;
+	max-width: 970px;
+	height: 500px;
+}
+
+.full-width {
+	margin: 20px 0px;
+}
+
+.full-width > * {
+	width: 100%;
+	text-align: center;
+}
+
+.vote-button {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.vote-button-done {
+	color: #9b50d4 !important;
+	background-color: #f6cf2e !important;	
+}
+
 /***********************************************************************************************/
 /*Profile Page*/
 

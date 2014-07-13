@@ -38,11 +38,13 @@ class Signin extends MY_Controller {
         if($this->check_inputs())
         {
             $contestant = $this->contestant->getByUsernamePassword($this->input->post('email'), $this->input->post('password'));
+            
             if(count($contestant))
             {
-                $this->session->set_userdata($contestant[0]);
+                $this->session->set_userdata(json_decode(json_encode($contestant[0])));
+                $this->output_results['message'] = "Login accepted...";
                 $this->output_results['success'] = TRUE;
-                $this->output_results['redirect'] = 'profile/';
+                $this->output_results['redirect'] = 'home/';
             }
             else
             {

@@ -13,6 +13,7 @@
                 <form enctype="multipart/form-data" id="upload_photo" action="profile/upload" method="post">
                     <div class="change-trigger">
                     	<input type="file" class="file-input" id="input-file" name="input-file"/>
+                      <input type="hidden" name="submit_vid" value="upload-video"/>
                     	<strong>Change</strong>
                     </div>
                 </form>

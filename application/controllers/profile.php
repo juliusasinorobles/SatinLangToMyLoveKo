@@ -22,6 +22,7 @@ class Profile extends MY_Controller {
     public function index()
     {        
         $this->load->model('contestant');  
+        $this->load->model('video');  
 
         if($this->input->post('submit')) 
         {
@@ -38,19 +39,33 @@ class Profile extends MY_Controller {
         {
         	$this->edit();
         }
+        else if($this->uri->segment(2) == "upload")
+        {
+        	$this->upload();
+        }
+        else if($this->uri->segment(2) == "video")
+        {
+        	$this->single_video();
+        }
         else 
         { 
-        
-	        $this->data['title'] = "Profile | Underdog Idols";       
-	        $this->active_page['profile'] = "active"; 
+	        if($this->session->userdata('id'))
+	        {
+		        $this->data['title'] = "Profile | Underdog Idols";       
+		        $this->active_page['profile'] = "active"; 
 
-	        $contestant = $this->contestant->getById($this->session->userdata('id'));
-	        $this->session->set_userdata($contestant[0]);
+		        $contestant = $this->contestant->getById($this->session->userdata('id'));
+		        $this->session->set_userdata(json_decode(json_encode($contestant[0]), true));
 
-	        $this->data['content_header'] = content_profile_header($this->pages['profile'], $this->session->userdata('picture'), $this->session->userdata('full_name'), $this->session->userdata('about'));
-	        $this->data['videos'] = $this->videos();
-	        $this->template('profile/profile');
-    
+		        $this->data['content_header'] = content_profile_header($this->pages['profile'], $this->session->userdata('picture'), $this->session->userdata('full_name'), $this->session->userdata('about'));
+		        $this->data['videos'] = $this->videos();
+		        $this->template('profile/profile');
+	        }
+	        else
+	        {
+	        	header("Location:".base_url()."signin");
+	        	exit;
+	        }        	    
         }
 	}
 
@@ -60,6 +75,15 @@ class Profile extends MY_Controller {
         $videos = $this->video->getByContestantId($this->session->userdata('id'));
 		if(count($videos))
 		{
+			foreach($videos as $key=>$video)
+			{
+				$videos[$key]->id = ez_encrypt($video->id);
+				if(strlen($video->video_title) > 34)
+				{
+					$videos[$key]->video_title = substr($video->video_title, 0, 35) . "...";
+				}
+				$videos[$key]->date_created = date("F d, Y", strtotime($video->date_created));
+			}
 			$temp_data['videos'] = $videos;
             return $this->parser->parse("profile/profile_videos", $temp_data, TRUE);
 		}
@@ -277,7 +301,6 @@ class Profile extends MY_Controller {
 
 	private function check_link()
 	{
-
         $this->validation->field_name('Submit')
         ->field_value($this->input->post('submit'))
         ->is_equal('upload-video')
@@ -299,6 +322,81 @@ class Profile extends MY_Controller {
             return false;
         }        
 
+	}
+
+	private function single_video()
+	{		
+    	if($this->uri->segment(3) != false)
+    	{   
+			$this->load->model("Vote");
+
+    		if($this->input->post('cmd') == "select")
+    		{    			
+		        $video = $this->video->getById(ez_decrypt($this->uri->segment(3)));
+
+    			$vote = array();
+				$vote['ip'] = $this->input->ip_address();
+				$vote['video_id'] = $video[0]->id;
+				$vote['contestant_id'] = $video[0]->contestant_id;
+
+				if($this->Vote->getByIPVideoIdDateCreated($vote['ip'], $vote['video_id'], date("Y-m-d")))
+				{
+					$this->output_results['success'] = FALSE;
+					$this->output_results['message'] = "You can only vote once a day.";	
+				}
+				else
+				{
+	    			if($this->Vote->insert($vote))
+	    			{
+						$this->output_results['success'] = TRUE;
+						$this->output_results['message'] = "Vote has been given.";
+	    			}
+	    			else
+	    			{
+						$this->output_results['success'] = TRUE;
+						$this->output_results['message'] = "There was a problem sending your vote.";
+	    			}				
+				}
+    								
+				$this->show_output_results();
+    		}   
+    		else
+    		{
+		        $this->data['title'] = "Profile | Underdog Idols";       
+		        $this->active_page['profile'] = "active";    
+				
+				$ip = $this->input->ip_address();
+				$vote = $this->Vote->getByIPVideoIdDateCreated($ip, ez_decrypt($this->uri->segment(3)), date("Y-m-d"));
+		        $video = $this->video->getById(ez_decrypt($this->uri->segment(3)));
+				$contestant = $this->contestant->getById($video[0]->contestant_id);
+				
+				$this->data['content_header'] = content_profile_header_public($this->pages['profile'], $contestant[0]->picture, $contestant[0]->full_name, $contestant[0]->about);
+		        $this->data['video'] = $video;
+		        $this->data['enc_id'] = $this->uri->segment(3);
+		        
+		        if( ($contestant[0]->id != $this->session->userdata('id')) || $this->session->userdata('id') == false)
+		        {
+					if(count($vote))
+					{
+						$this->data['vote_buton'] = $this->parser->parse("profile/profile_public_video_vote_button_done", $this->data, TRUE);
+					}
+					else
+					{
+						$this->data['vote_buton'] = $this->parser->parse("profile/profile_public_video_vote_button", $this->data, TRUE);		
+					}
+		        }
+		        else
+		        {
+		        	$this->data['vote_buton'] = "vote counts";
+		        }
+
+		        $this->template('profile/profile_public_video');		
+    		}  		
+    	}
+    	else
+    	{
+    		echo "invalid video parameter...";
+    	}
 	}
 
     public function __destruct()

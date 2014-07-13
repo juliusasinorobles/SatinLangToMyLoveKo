@@ -219,7 +219,6 @@ class validation
     */
     public function is_used($dataset)
     {
-
         if(count($dataset)){
             $this->err[] = $this->field . ' already in use.';    
         }

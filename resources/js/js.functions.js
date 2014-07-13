@@ -188,3 +188,50 @@ function ___form_show_res(result){
 
 }
 
+function ___send_select(elem, d)
+{
+	 if ( netCall == null ) {
+    	
+    	var btn = $(elem);
+	 	var des = d;
+	 	var d = {cmd:"select"};
+
+    	netCall = $.ajax({
+			        url: des,
+			        data: d,
+			        type: "post",
+			        dataType: 'json',
+			        async: true,
+			        cache: false,
+			        success: function(res) {
+						
+						console.log(btn);
+			        	console.log(res);
+			        	console.log(res.success);
+
+						if(res.success == true){
+							$(btn).addClass("vote-button-done");
+							$(btn).html("Thank you for voting!");
+							$(btn).removeAttr("onclick");
+						}
+
+		        		netCall = null;
+					},
+					error: function(res){
+						console.log("Error: " + res);
+		        		netCall = null;
+					}
+			    }).done(function(res){
+			    	console.log("Done: " + res);
+		        	netCall = null;
+		        });
+
+    }
+    else
+    {
+    	console.log("working...");
+    }
+
+    return false;
+}
+

@@ -18,6 +18,7 @@ class MY_Controller extends CI_Controller
             'html'));
 
         $this->load->library(array(
+            'curl',
             'parser',
             'pagination',
             'session',
@@ -145,6 +146,10 @@ class MY_Controller extends CI_Controller
             $video = array();
             $video['contestant_id'] = $this->session->userdata('id');
             $video['link'] = $link;
+            $video['video_title'] = $this->get_video_title($link);
+            $video['embeded_link'] = str_replace('watch?v=', 'v/', $link);
+            $video['thumbnail_link'] = str_replace('www', 'img', $video['embeded_link']);
+            $video['thumbnail_link'] = str_replace('v/', 'vi/', $video['embeded_link'])."/0.jpg";
             //$video['genre'] = "";
 
             if($video['id'] = $this->video->insert($video))
@@ -171,8 +176,27 @@ class MY_Controller extends CI_Controller
     private function paypal_prelaunch($trans_id)
     {
         $invoice = '&invoice='.$trans_id;
-        $paypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97W82MDRDWB7N'.$invoice;
+        $paypal = 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KNSFYMK69J5M2'.$invoice;
         return $paypal;
+    }
+
+    private function get_video_title($url)
+    {
+        $tmp = explode('watch?v=', $url);
+        $video_id = $tmp[1];
+        $api = 'https://gdata.youtube.com/feeds/api/videos/'.$video_id.'?v=2';
+        
+        $this->curl->create($api);
+        $this->curl->option("SSL_VERIFYPEER",0);
+        $this->curl->option("SSL_VERIFYHOST",2);
+        $result = $this->curl->execute();
+
+        $result = simplexml_load_string($result);   
+        $result = json_decode(json_encode($result));
+
+        $title = $result->title;
+        
+        return $title;
     }
 
     public function validate_code()

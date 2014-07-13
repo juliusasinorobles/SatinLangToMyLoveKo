@@ -1,0 +1,4 @@
+2014-07-12 08:21:32 | No invoice found | []
+2014-07-12 08:24:05 | Payment successfull | {"mc_gross":"10.00","invoice":"UIVREG20140712055316c6v15","txn_id":"45S24048CN994503M"}
+2014-07-12 08:24:59 | Payment successfull | {"mc_gross":"10.00","invoice":"UIVREG20140712055316c6v15","txn_id":"45S24048CN994503M"}
+2014-07-12 08:25:11 | No invoice found | []
