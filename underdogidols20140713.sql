@@ -131,6 +131,42 @@ CREATE TABLE `payment` (
 
 insert  into `payment`(`id`,`video_id`,`contestant_id`,`invoice`,`trans_id`,`amount`,`refunded`,`active`,`date_created`) values (1,15,6,'UIVREG20140712055316c6v15','45S24048CN994503M','10',0,1,'2014-07-12 14:24:05'),(2,15,6,'UIVREG20140712055316c6v15','45S24048CN994503M','10',0,1,'2014-07-12 14:24:59');
 
+/*Table structure for table `top_ten` */
+
+DROP TABLE IF EXISTS `top_ten`;
+
+CREATE TABLE `top_ten` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contestant_id` int(11) NOT NULL,
+  `video_id` int(11) NOT NULL,
+  `round_month` varchar(15) NOT NULL,
+  `ranking` int(11) NOT NULL,
+  `votes` int(11) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `top_ten` */
+
+insert  into `top_ten`(`id`,`contestant_id`,`video_id`,`round_month`,`ranking`,`votes`,`date_created`) values (2,20,14,'7,2014',1,1,'2014-07-13 15:07:08'),(3,20,15,'7,2014',2,2,'2014-07-13 15:07:08');
+
+/*Table structure for table `top_three` */
+
+DROP TABLE IF EXISTS `top_three`;
+
+CREATE TABLE `top_three` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contestant_id` int(11) NOT NULL,
+  `video_id` int(11) NOT NULL,
+  `round_month` varchar(15) NOT NULL,
+  `ranking` int(11) NOT NULL,
+  `votes` int(11) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `top_three` */
+
 /*Table structure for table `video` */
 
 DROP TABLE IF EXISTS `video`;
@@ -144,17 +180,17 @@ CREATE TABLE `video` (
   `thumbnail_link` varchar(250) DEFAULT NULL,
   `genre` varchar(50) DEFAULT NULL,
   `round` int(11) DEFAULT NULL,
-  `round_month` datetime DEFAULT NULL,
+  `round_month` varchar(15) DEFAULT NULL,
   `review` varchar(15) DEFAULT 'pending' COMMENT 'pending, approved, rejected',
   `viewable` tinyint(1) DEFAULT '1',
   `active` tinyint(1) DEFAULT '0',
   `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 /*Data for the table `video` */
 
-insert  into `video`(`id`,`contestant_id`,`video_title`,`link`,`embeded_link`,`thumbnail_link`,`genre`,`round`,`round_month`,`review`,`viewable`,`active`,`date_created`) values (1,1,NULL,'http://localhost/projects/underdogidols/profile#',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-25 16:04:08'),(2,0,NULL,NULL,NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 20:50:33'),(3,0,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 20:53:00'),(4,15,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 21:02:49'),(5,16,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 21:13:19'),(6,17,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 21:15:49'),(7,18,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 21:18:52'),(8,19,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 21:20:28'),(9,20,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 21:22:05'),(10,20,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-05-31 22:48:42'),(11,6,NULL,'https://www.youtube.com/watch?v=a6mnQ14MPZU',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-07-06 21:33:25'),(12,6,NULL,'https://www.youtube.com/watch?v=3iuZmQpQ1Wc',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-07-06 22:22:04'),(13,6,NULL,'https://www.youtube.com/watch?v=EcsaMlu1mEs',NULL,NULL,'Rock',NULL,NULL,'pending',1,0,'2014-07-12 11:09:22'),(14,20,'Magkabilang Mundo - Jerih Lim [Video Lyrics]','https://www.youtube.com/watch?v=TMQpzgDaRa0','https://www.youtube.com/v/TMQpzgDaRa0','https://img.youtube.com/vi/TMQpzgDaRa0/0.jpg','Rock',NULL,NULL,'pending',1,1,'2014-07-12 11:48:01'),(15,20,'Avicii - Wake Me Up (Official Video)','https://www.youtube.com/watch?v=IcrbM1l_BoI','https://www.youtube.com/v/IcrbM1l_BoI','https://img.youtube.com/vi/IcrbM1l_BoI/0.jpg','Rock',NULL,NULL,'pending',1,1,'2014-07-12 11:53:16');
+insert  into `video`(`id`,`contestant_id`,`video_title`,`link`,`embeded_link`,`thumbnail_link`,`genre`,`round`,`round_month`,`review`,`viewable`,`active`,`date_created`) values (1,1,NULL,'http://localhost/projects/underdogidols/profile#',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-25 16:04:08'),(2,0,NULL,NULL,NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 20:50:33'),(3,0,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 20:53:00'),(4,15,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 21:02:49'),(5,16,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 21:13:19'),(6,17,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 21:15:49'),(7,18,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 21:18:52'),(8,19,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 21:20:28'),(9,20,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 21:22:05'),(10,20,NULL,'https://www.youtube.com/watch?v=iIj07LL57RA',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-05-31 22:48:42'),(11,6,NULL,'https://www.youtube.com/watch?v=a6mnQ14MPZU',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-07-06 21:33:25'),(12,6,NULL,'https://www.youtube.com/watch?v=3iuZmQpQ1Wc',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-07-06 22:22:04'),(13,6,NULL,'https://www.youtube.com/watch?v=EcsaMlu1mEs',NULL,NULL,'Rock',1,'7,2014','pending',1,0,'2014-07-12 11:09:22'),(14,20,'Magkabilang Mundo - Jerih Lim [Video Lyrics]','https://www.youtube.com/watch?v=TMQpzgDaRa0','https://www.youtube.com/v/TMQpzgDaRa0','https://img.youtube.com/vi/TMQpzgDaRa0/0.jpg','Rock',1,'7,2014','pending',1,1,'2014-07-12 11:48:01'),(15,20,'Avicii - Wake Me Up (Official Video)','https://www.youtube.com/watch?v=IcrbM1l_BoI','https://www.youtube.com/v/IcrbM1l_BoI','https://img.youtube.com/vi/IcrbM1l_BoI/0.jpg','Rock',1,'7,2014','pending',1,1,'2014-07-12 11:53:16');
 
 /*Table structure for table `vote` */
 
@@ -171,7 +207,7 @@ CREATE TABLE `vote` (
 
 /*Data for the table `vote` */
 
-insert  into `vote`(`id`,`video_id`,`contestant_id`,`ip`,`date_created`) values (1,15,20,'127.0.0.1','0000-00-00 00:00:00'),(2,15,20,'127.0.0.1','2014-07-12 22:25:41'),(3,14,20,'127.0.0.1','2014-07-12 22:29:34');
+insert  into `vote`(`id`,`video_id`,`contestant_id`,`ip`,`date_created`) values (1,15,20,'127.0.0.1','2014-07-01 22:25:41'),(2,15,20,'127.0.0.1','2014-07-12 22:25:41'),(3,14,20,'127.0.0.1','2014-07-12 22:29:34');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
