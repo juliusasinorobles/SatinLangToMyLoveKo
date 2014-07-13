@@ -795,6 +795,7 @@ a.register-btn{
 .upload-video-form .button{
 	margin-top: 20px !important;  
 	margin-left: -20px !important;
+	width: 100%;
 	padding: 18px;
 	padding-left: 25px;
 	padding-right: 25px;

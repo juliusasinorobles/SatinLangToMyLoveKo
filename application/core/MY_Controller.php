@@ -150,7 +150,38 @@ class MY_Controller extends CI_Controller
             $video['embeded_link'] = str_replace('watch?v=', 'v/', $link);
             $video['thumbnail_link'] = str_replace('www', 'img', $video['embeded_link']);
             $video['thumbnail_link'] = str_replace('v/', 'vi/', $video['embeded_link'])."/0.jpg";
-            //$video['genre'] = "";
+            
+            $date = date("Y-m-d H:i:s");
+            $date_d = date("d", strtotime($date));
+            $date_m = date("m", strtotime($date));
+            $date_y = date("Y", strtotime($date));
+            
+            if($date_d <= 7)
+            {
+                if($date_m == 1)
+                {
+                    $tmp_date_d = 12;
+                    $tmp_date_y = (date_y - 1);
+                }
+                
+                //if in top 10 via (contestant_id = to ? and round_month of last month)
+
+                $video['round'] = 1;
+                $video['round_month'] = $date_d.','.$date_y;
+            }
+            else
+            {
+                if($date_m == 12)
+                {
+                    $date_m = 1;
+                    $date_y++;
+                }
+
+                $video['round'] = 1;
+                $video['round_month'] = $date_d.','.$date_y;
+
+                $round_month = $date_d.','.$date_y;
+            }
 
             if($video['id'] = $this->video->insert($video))
             {

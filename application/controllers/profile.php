@@ -5,7 +5,8 @@ class Profile extends MY_Controller {
 	public $action_message = array(
 		'success_video' => "Video link successfully saved",
 		'success_update' => "Record successfully updated",
-		'failed_update' => "Unable to process your request"
+		'failed_update' => "Unable to process your request",
+		'failed_already_reg' => "You can only submit one video per month."
 	);
 	
 	public function __construct()
@@ -289,11 +290,17 @@ class Profile extends MY_Controller {
 	{
 		if($this->check_link())
 		{
-
-	        $this->output_results['success'] = TRUE;
-	        $this->output_results['message'] = $this->action_message['success_video'];
-            $this->output_results['redirect'] = $this->payment($this->input->post('link'));
-
+			//already registered
+			if(true)
+			{
+		        $this->output_results['success'] = FALSE;
+		        $this->output_results['message'] = $this->action_message['failed_already_reg'];
+			}
+			else{
+		        $this->output_results['success'] = TRUE;
+		        $this->output_results['message'] = $this->action_message['success_video'];
+	            $this->output_results['redirect'] = $this->payment($this->input->post('link'));
+       		}
 		}
 
         $this->show_output_results();
@@ -339,6 +346,7 @@ class Profile extends MY_Controller {
 				$vote['video_id'] = $video[0]->id;
 				$vote['contestant_id'] = $video[0]->contestant_id;
 
+				//if round_month = ? 
 				if($this->Vote->getByIPVideoIdDateCreated($vote['ip'], $vote['video_id'], date("Y-m-d")))
 				{
 					$this->output_results['success'] = FALSE;
@@ -357,7 +365,18 @@ class Profile extends MY_Controller {
 						$this->output_results['message'] = "There was a problem sending your vote.";
 	    			}				
 				}
-    								
+    			//else
+    			/*{
+					if round_month is next month
+					{
+						display voting schedule 8-something
+					}
+					else
+					{
+						display top ten, and top 3
+					}
+    			}*/
+
 				$this->show_output_results();
     		}   
     		else
